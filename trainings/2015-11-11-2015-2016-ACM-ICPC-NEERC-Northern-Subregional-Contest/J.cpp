@@ -3,9 +3,13 @@
 
 #define left LLFEG
 #define right RITHTGH
-const int INF = 1 << 29;
+
 using namespace std;
+
+const int INF = 1 << 29;
+
 const int N = 55555;
+
 int n, limit, price[N], d[N], ok[N];
 long long dp[N];
 

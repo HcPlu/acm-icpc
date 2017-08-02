@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-const int N = 22222;
+
 int hassolved[22], solved[22][222], number[222], total, N;
 int teams, problems, n;
 
@@ -14,7 +14,7 @@ struct Submission {
 
     Submission(int id, int prob, string happen, int ok) : id(id), prob(prob), happen(happen), ok(ok) {
     }
-} submission[N];
+} submission[22222];
 
 int calc(const string &text) {
     return ((text[0] - '0') * 10 + (text[1] - '0')) * 3600 + ((text[3] - '0') * 10 + (text[4] - '0')) * 60 +
@@ -79,7 +79,6 @@ void solve() {
             }
             hassolved[prob]++;
             N = max(number[t], N);
-
         }
         int flag = check();
         if (flag) {

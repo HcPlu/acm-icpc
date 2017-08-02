@@ -87,22 +87,28 @@ int main() {
         return 0;
     }
     int len = 0;
-    for (int i = 1; i <= len2; i++)
+    for (int i = 1; i <= len2; i++) {
         c[len++] = c2[i];
+    }
     c[len++] = '$';
-    for (int i = 1; i <= len1; i++)
+    for (int i = 1; i <= len1; i++) {
         c[len++] = c1[i];
-    for (int i = 1; i <= len1; i++)
+    }
+    for (int i = 1; i <= len1; i++) {
         c[len++] = c1[i];
+    }
     solve(c, len, a);
     len = 0;
-    for (int i = len2; i >= 1; i--)
+    for (int i = len2; i >= 1; i--) {
         c[len++] = c2[i];
+    }
     c[len++] = '$';
-    for (int i = len1; i >= 1; i--)
+    for (int i = len1; i >= 1; i--) {
         c[len++] = c1[i];
-    for (int i = len1; i >= 1; i--)
+    }
+    for (int i = len1; i >= 1; i--) {
         c[len++] = c1[i];
+    }
     solve(c, len, b);
     for (int i = 0; i < len1 * 2; i++) {
         front[i + 1] = a[i + len2 + 1];
@@ -116,7 +122,6 @@ int main() {
 
     int ans = -1;
     for (int i = 1; i <= len1 * 2; i++) {
-
         if (tail[i] == 0) {
             continue;
         }
@@ -131,7 +136,6 @@ int main() {
         R = R - res + 1;
         int root = bel[R];
         int id = -1;
-
 
         update(1, i);
 

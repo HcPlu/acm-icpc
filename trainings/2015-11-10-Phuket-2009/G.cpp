@@ -2,9 +2,11 @@
 #include <vector>
 
 using namespace std;
+
+const int INF = 1 << 29;
 const int dx[6] = {0, 1, 1, 0, -1, -1};
 const int dy[6] = {1, 1, 0, -1, -1, 0};
-const int INF = 1 << 29;
+
 vector<pair<int, int> > adj[222][6];
 pair<int, int> pos[11], target[11], ntarget[11];
 int bad[22][22], direction[6], order[6], px[6], py[6], dist[10][222][6];

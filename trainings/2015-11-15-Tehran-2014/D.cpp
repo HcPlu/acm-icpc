@@ -2,8 +2,10 @@
 #include <vector>
 
 using namespace std;
-const int N = 222;
+
 const int INF = 1 << 30;
+
+const int N = 222;
 
 vector<pair<int, int> > adj[N];
 int dist[N], f[N], inqueue[N];;

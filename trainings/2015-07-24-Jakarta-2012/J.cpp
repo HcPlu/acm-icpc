@@ -4,13 +4,13 @@ using namespace std;
 typedef unsigned long long LL;
 
 const long long M = 1e9 + 7;
-const int MAX_N = 11111;
+const int N = 11111;
 
 int T, n;
-int length[MAX_N];
-char s[MAX_N];
-long long sum[MAX_N], hash[MAX_N], rev_hash[MAX_N];
-long long pow[MAX_N];
+int length[N];
+char s[N];
+long long sum[N], hash[N], rev_hash[N];
+long long pow[N];
 
 int main() {
     scanf("%d", &T);

@@ -6,13 +6,13 @@ This repository is a code library (including training collections and template l
 ## Structure
 
 ```
-trainings/           # training collections
-| yyyy-mm-dd-name/   # 
-templates/           # template library
-| template.pdf       # pdf file for template
-| cheatsheet.pdf     # cheatsheet
-| template.tex       # tex file for template
-| source/            # code files for template
+trainings/            # collection for 48 trainings
+| yyyy-mm-dd-name/    # folder for the training of yyyy-mm-dd
+templates/            # template library
+| source/             # source codes of algorithms
+| template.pdf        # compiled pdf file of template
+| template.tex        # tex source code of template
+| cheatsheet.pdf      # cheatsheet
 ```
 
 ## License

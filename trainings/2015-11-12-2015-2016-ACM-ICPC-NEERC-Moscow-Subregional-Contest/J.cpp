@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 111111;
+
 long long f[N][333];
 
 int n;

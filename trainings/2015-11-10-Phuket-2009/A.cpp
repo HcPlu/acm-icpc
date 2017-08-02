@@ -3,11 +3,13 @@
 #include <map>
 
 using namespace std;
+
 const int N = 666;
-int best[N][N], visit[N][N], stamp, number[N];
+
 int n;
-vector<pair<int, int> > plane;
+int best[N][N], visit[N][N], stamp, number[N];
 map<pair<int, int>, int> counter;
+vector<pair<int, int> > plane;
 
 int dfs(int l, int r) {
     if (l > r) {

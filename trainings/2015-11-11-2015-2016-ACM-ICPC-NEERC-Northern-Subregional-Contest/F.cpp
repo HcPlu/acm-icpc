@@ -2,6 +2,7 @@
 #include <vector>
 
 using namespace std;
+
 const int N = 11111;
 
 struct Line {

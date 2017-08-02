@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 3333;
+
 char block[N][40];
 
 int main() {

@@ -2,6 +2,7 @@
 #include <cmath>
 
 using namespace std;
+
 const long double eps = 1e-9;
 
 long double mysqrt(long double x) {
