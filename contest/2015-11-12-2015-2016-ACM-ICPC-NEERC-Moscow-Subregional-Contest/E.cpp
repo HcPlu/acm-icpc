@@ -43,15 +43,15 @@ int main(void) {
     for (int i = 0; i < n; ++i) {
         scanf("%d", a + i);
     }
-    
+
     std::reverse(a, a + n);
-    
+
     fact[0] = inverse[0] = 1;
     for (int i = 1; i <= n; ++i) {
         fact[i] = fact[i - 1] * i % mod;
         inverse[i] = inverse[i - 1] * pow(i, mod - 2) % mod;
     }
-    
+
     long long answer = 0;
     for (int k = 1, base = n; k < n; k <<= 1, base >>= 1) {
         long long number = 0, coefficient = 0;
@@ -62,6 +62,6 @@ int main(void) {
         (number *= base) %= mod;
         update(answer, number * sqr(fact[k]) % mod * fact[n - k - k] % mod);
     }
-    
+
     std::cout << answer * inverse[n] % mod << std::endl;
 }

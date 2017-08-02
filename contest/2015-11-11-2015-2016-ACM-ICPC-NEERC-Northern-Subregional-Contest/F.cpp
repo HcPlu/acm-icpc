@@ -1,8 +1,4 @@
 #include <iostream>
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
-#include <string>
 #include <vector>
 
 using namespace std;
@@ -11,9 +7,13 @@ const int N = 11111;
 struct Line {
     int tp;
     char forch, limit;
-    Line() {}
-    Line(int tp, char forch, char limit) : tp(tp), forch(forch), limit(limit) {}
-}line[N];
+
+    Line() {
+    }
+
+    Line(int tp, char forch, char limit) : tp(tp), forch(forch), limit(limit) {
+    }
+} line[N];
 
 int variable[8888];
 int length[N], begin[N], counter;
@@ -24,36 +24,37 @@ int n;
 class Fraction {
 public:
     long long numerator, denominator;
-    
+
     void reduce() {
         long long divisor = std::__gcd(numerator, denominator);
         numerator /= divisor;
         denominator /= divisor;
-        
+
         if (divisor == 0) {
             numerator = 0;
             denominator = 1;
             return;
         }
-        
+
         if (denominator < 0) {
             numerator = -numerator;
             denominator = -denominator;
         }
     }
 
-    Fraction(const long long &numerator = 0, const long long &denominator = 1) : numerator(numerator), denominator(denominator) {
+    Fraction(const long long &numerator = 0, const long long &denominator = 1) : numerator(numerator),
+                                                                                 denominator(denominator) {
         reduce();
     }
-    
-    friend Fraction operator + (const Fraction &a, const Fraction &b) {
+
+    friend Fraction operator +(const Fraction &a, const Fraction &b) {
         return Fraction(a.denominator * b.numerator + b.denominator * a.numerator, a.denominator * b.denominator);
     }
-    
-    friend Fraction operator * (const Fraction &a, const Fraction &b) {
+
+    friend Fraction operator *(const Fraction &a, const Fraction &b) {
         return Fraction(a.numerator * b.numerator, a.denominator * b.denominator);
     }
-    
+
     void print(bool empty) const {
         if (numerator < 0) {
             printf("-");
@@ -78,14 +79,14 @@ public:
 class Polynomial {
 public:
     Fraction item[10];
-    
+
     Polynomial() {
         for (int i = 0; i < 10; ++i) {
             item[i] = Fraction();
         }
     }
-    
-    friend Polynomial operator * (const Polynomial &a, const Polynomial &b) {
+
+    friend Polynomial operator *(const Polynomial &a, const Polynomial &b) {
         Polynomial c;
         for (int i = 0; i < 10; ++i) {
             for (int j = 0; j <= i; ++j) {
@@ -95,7 +96,7 @@ public:
         return c;
     }
 
-    friend Polynomial operator + (const Polynomial &a, const Polynomial &b) {
+    friend Polynomial operator +(const Polynomial &a, const Polynomial &b) {
         Polynomial c;
         for (int i = 0; i < 10; ++i) {
             c.item[i] = a.item[i] + b.item[i];
@@ -115,6 +116,7 @@ void run(int x) {
         }
     }
 }
+
 int calc(int nn) {
     memset(variable, 0, sizeof variable);
     variable['n'] = nn;
@@ -138,11 +140,11 @@ int calc(int nn) {
             }
         }
     }
-    
+
     for (int i = 0; i < n; i++) {
         next[i].clear();
     }
-    
+
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (begin[j] <= begin[i]) {
@@ -153,9 +155,9 @@ int calc(int nn) {
             }
         }
     }
-    
+
     counter = 0;
-    
+
     for (int i = 0; i < n; i++) {
         if (begin[i] == 0) {
             run(i);
@@ -166,12 +168,12 @@ int calc(int nn) {
 
 void solve() {
     n--;
-    
+
     Polynomial answer;
     for (int i = 0; i <= 6; ++i) {
         long long a = calc(i);
         long long b = 1;
-        
+
         for (int j = 0; j <= 6; ++j) {
             if (j != i) {
                 b *= i - j;
@@ -179,7 +181,7 @@ void solve() {
         }
 
         Fraction coefficient = Fraction(a, b);
-        
+
         Polynomial temp;
         temp.item[0] = coefficient;
 
@@ -191,10 +193,10 @@ void solve() {
                 temp = temp * item;
             }
         }
-        
+
         answer = answer + temp;
     }
-    
+
     bool empty = true;
     for (int i = 0; i <= 6; ++i) {
         if (answer.item[i].numerator) {
@@ -215,6 +217,6 @@ void solve() {
 
 int main() {
     n = 0;
-    for (;gets(text[n++]); );
+    for (; gets(text[n++]););
     solve();
 }

@@ -1,12 +1,10 @@
 #include <iostream>
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
 #include <vector>
 
 using namespace std;
 
 long long n;
+
 void solve() {
     cin >> n;
     int base = 0;
@@ -17,7 +15,7 @@ void solve() {
         }
         long long now = 1;
         int j;
-        for (j = 0; now <= n; ) {
+        for (j = 0; now <= n;) {
             now = now * 3;
             j++;
         }
@@ -32,6 +30,7 @@ void solve() {
         cout << answer[i] << (i == (int)answer.size() - 1 ? "\n" : " ");
     }
 }
+
 int main() {
     int tests;
     scanf("%d", &tests);

@@ -1,7 +1,4 @@
 #include <iostream>
-#include <cstdio>
-#include <algorithm>
-#include <cstring>
 #include <vector>
 
 #define left LLFEG
@@ -20,14 +17,14 @@ int main() {
     for (int i = 2; i < n; i++) {
         scanf("%d", &d[i]);
     }
-    
+
     d[1] = 0;
     d[n] = 0;
-    
+
     for (int i = 1; i <= n - 1; i++) {
         ok[i] = 1;
     }
-        
+
     int minx = INF;
     for (int i = n - 1; i >= 1; i--) {
         if (price[i] >= minx) {
@@ -36,25 +33,25 @@ int main() {
             minx = min(price[i], minx);
         }
     }
-    
+
     vector<int> card;
-    
+
     for (int i = 1; i <= n - 1; i++) {
-        if (ok[i]) card.push_back(i);
+        if (ok[i])
+            card.push_back(i);
     }
-    
+
     int left = 0, right = (int)card.size() - 1;
     int answer;
-    
-    while (left <= right) 
-    {
+
+    while (left <= right) {
         int mid = (left + right) >> 1;
         vector<int> stack;
         dp[1] = 0;
         int head = 0;
         stack.push_back(1);
         for (int i = 2; i <= n; i++) {
-            for (;head < (int)stack.size() && stack[head] < i - card[mid]; head++);
+            for (; head < (int)stack.size() && stack[head] < i - card[mid]; head++);
             dp[i] = dp[stack[head]] + i - stack[head] + d[i];
             for (; (int)stack.size() > head && dp[i] <= dp[stack.back()] + i - stack.back(); stack.pop_back());
             stack.push_back(i);
@@ -66,7 +63,7 @@ int main() {
             answer = price[card[mid]];
         }
     }
-    
+
     printf("%d\n", answer);
-        
+
 }

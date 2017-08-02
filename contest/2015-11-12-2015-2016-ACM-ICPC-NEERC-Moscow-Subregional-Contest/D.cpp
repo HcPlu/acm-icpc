@@ -1,13 +1,13 @@
 #include <iostream>
-#include <cstdio>
-#include <cstring>
 #include <cmath>
 
 using namespace std;
 const long double eps = 1e-9;
+
 long double mysqrt(long double x) {
     return sqrt(max(x, (long double)0));
 }
+
 int main() {
     double x, y;
     scanf("%lf%lf", &x, &y);
@@ -16,7 +16,7 @@ int main() {
     scanf("%lf%lf", &x, &y);
     long double h2, t2;
     h2 = x, t2 = y;
-    
+
     long double A = (h2 - h1);
     long double B = -(2 * t1 * h2 - 2 * t2 * h1);
     long double C = h2 * t1 * t1 - h1 * t2 * t2;

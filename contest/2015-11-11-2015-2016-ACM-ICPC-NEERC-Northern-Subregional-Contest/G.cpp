@@ -18,7 +18,7 @@ int main(void) {
         edge[x].push_back(y);
         degree[y]++;
     }
-    
+
     std::vector<int> result;
     std::vector<std::pair<int, int> > edges;
 
@@ -28,14 +28,14 @@ int main(void) {
             seta.insert(i);
         }
     }
-    
+
     while (!seta.empty() || !setb.empty()) {
         if (seta.empty()) {
             int x = *setb.rbegin();
             setb.erase(x);
-            
-assert(!result.empty());
-            
+
+            assert(!result.empty());
+
             edges.push_back(std::make_pair(result.back(), x));
             result.push_back(x);
 
@@ -50,13 +50,13 @@ assert(!result.empty());
             if (!setb.empty()) {
                 w = std::max(w, *setb.rbegin());
             }
-            
+
             int x = *seta.begin();
             seta.erase(x);
-            
+
             if (k <= 0 || x == w) {
                 result.push_back(x);
-                
+
                 for (int i = 0; i < (int)edge[x].size(); ++i) {
                     int y = edge[x][i];
                     if (--degree[y] == 0) {
@@ -69,7 +69,7 @@ assert(!result.empty());
             }
         }
     }
-    
+
     for (int i = 0; i < (int)result.size(); ++i) {
         printf("%d%s", result[i], (i == (int)result.size() - 1) ? "\n" : " ");
     }

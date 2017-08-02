@@ -20,7 +20,7 @@ int main(void) {
         for (int j = 0; j < m; ++j) {
             for (int k = 0; k < 4; ++k) {
                 bool win = true;
-                
+
                 int x = i + dx[k], y = j + dy[k];
                 while (x >= 0 && x < n && y >= 0 && y < m) {
                     if (item[x][y] >= item[i][j]) {
@@ -30,7 +30,7 @@ int main(void) {
                     x += dx[k];
                     y += dy[k];
                 }
-                
+
                 answer += win;
             }
         }
