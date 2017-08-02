@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 2010;
+
 int m, n, w[N], a[N], b[N];
 int f[N][N][2];
 
@@ -16,10 +18,11 @@ void solve() {
         scanf("%d%d%d", &w[i], &a[i], &b[i]);
     }
     int ans = 0;
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i <= n; i++) {
         for (int j = 0; j <= m; j++) {
             f[i][j][1] = f[i][j][0] = 0;
         }
+    }
     for (int i = 1; i <= n; i++) {
         for (int j = 0; j <= m; j++) {
             f[i][j][0] = max(f[i - 1][j][0], f[i - 1][j][1]);
@@ -31,7 +34,6 @@ void solve() {
     }
 
     printf("%d\n", ans);
-
 }
 
 int main() {

@@ -1,7 +1,6 @@
 #include <cstdio>
 #include <cstring>
 #include <algorithm>
-#include <cstdlib>
 
 using namespace std;
 
@@ -10,7 +9,6 @@ const int N = 111111;
 int k, bin[N];
 int x[N], y[N], hash[N], len, height[N], rank[N], sa[N], pow10[N], increment[N], sum[N], ans[N];
 char str[N];
-
 
 __inline int get(int left, int right) {
     int result = hash[right] - hash[left - 1] * pow10[right - left + 1];
@@ -21,44 +19,56 @@ __inline int get(int left, int right) {
 }
 
 void sort(int a[], int b[], int c[], int n, int m) {
-    for (int i = 0; i <= m; i++)
+    for (int i = 0; i <= m; i++) {
         bin[i] = 0;
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         bin[c[a[i]]]++;
-    for (int i = 1; i <= m; i++)
+    }
+    for (int i = 1; i <= m; i++) {
         bin[i] += bin[i - 1];
-    for (int i = n; i >= 1; i--)
+    }
+    for (int i = n; i >= 1; i--) {
         b[bin[c[a[i]]]--] = a[i];
+    }
 }
 
 void calc_sa() {
-    for (int i = 1; i <= len; i++)
+    for (int i = 1; i <= len; i++) {
         rank[i] = i, x[i] = str[i];
+    }
     sort(rank, sa, x, len, 256);
     rank[sa[1]] = 1;
-    for (int i = 2; i <= len; i++)
+    for (int i = 2; i <= len; i++) {
         rank[sa[i]] = rank[sa[i - 1]] + (x[sa[i]] != x[sa[i - 1]]);
+    }
     for (int i = 1; i <= len; i <<= 1) {
-        for (int j = 1; j <= len; j++)
+        for (int j = 1; j <= len; j++) {
             sa[j] = j, y[j] = i + j <= len ? rank[i + j] : 0, x[j] = rank[j];
+        }
         sort(sa, rank, y, len, len);
         sort(rank, sa, x, len, len);
         rank[sa[1]] = 1;
-        for (int j = 2; j <= len; j++)
+        for (int j = 2; j <= len; j++) {
             rank[sa[j]] = rank[sa[j - 1]] + (x[sa[j - 1]] != x[sa[j]] || y[sa[j - 1]] != y[sa[j]]);
-        if (rank[sa[len]] == len)
+        }
+        if (rank[sa[len]] == len) {
             return;
+        }
     }
 }
 
 void calc_height() {
     int now = 0;
     for (int i = 1; i <= len; i++) {
-        if (now > 0)
+        if (now > 0) {
             now--;
-        if (rank[i] != 1)
-            while (str[i + now] == str[sa[rank[i] - 1] + now])
+        }
+        if (rank[i] != 1) {
+            while (str[i + now] == str[sa[rank[i] - 1] + now]) {
                 now++;
+            }
+        }
         height[rank[i]] = now;
     }
 }
@@ -143,5 +153,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%s%d", str + 1, &k); solve());
+    for (; ~scanf("%s%d", str + 1, &k); solve()) {
+    }
 }

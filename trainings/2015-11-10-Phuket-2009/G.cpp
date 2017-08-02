@@ -173,8 +173,9 @@ void solve() {
                             break;
                         }
                     }
-                    if (!ok)
+                    if (!ok) {
                         continue;
+                    }
 
                     stick.clear();
                     for (int i = 1; i <= n; i++) {
@@ -200,10 +201,12 @@ void solve() {
                             int d2 = dist[stick[order[i]]][ntarget[i].first][ntarget[i].second];
                             int d = min(d1, d2);
                             if (d == -1) {
-                                if (d2 != -1)
+                                if (d2 != -1) {
                                     d = d2;
-                                if (d1 != -1)
+                                }
+                                if (d1 != -1) {
                                     d = d1;
+                                }
                             }
 
                             if (d == -1) {

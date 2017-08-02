@@ -23,5 +23,6 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d%d", &x, &y, &z) && ((x != -1) || (y != -1) || (z != -1)); solve());
+    for (; scanf("%d%d%d", &x, &y, &z) && ((x != -1) || (y != -1) || (z != -1)); solve()) {
+    }
 }

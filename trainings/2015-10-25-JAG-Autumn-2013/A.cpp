@@ -8,8 +8,9 @@ int isx[N], num[N], n;
 
 void solve() {
     char text[100];
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i <= n; i++) {
         isx[i] = 0;
+    }
     num[0] = INF;
     vector<int> pos;
     for (int i = 1; i <= n; i++) {
@@ -27,8 +28,9 @@ void solve() {
             puts("none");
             return;
         }
-        if (isx[i])
+        if (isx[i]) {
             continue;
+        }
         if (i & 1) {
             if (!isx[i - 1]) {
                 if (num[i] >= num[i - 1]) {
@@ -78,6 +80,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d", &n) && n; solve());
+    for (; scanf("%d", &n) && n; solve()) {
+    }
     return 0;
 }

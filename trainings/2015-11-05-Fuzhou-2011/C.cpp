@@ -108,13 +108,15 @@ void work() {
     }
     dfs(1, 0);
     get_up(1, 0, 0);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         Max[i][0] = Min[i][0] = max(up[i], Max_son[i].Max[0].first);
-    for (int i = 1; i <= Log[n]; i++)
+    }
+    for (int i = 1; i <= Log[n]; i++) {
         for (int j = 1; (j + (1 << i) - 1) <= n; j++) {
             Max[j][i] = max(Max[j][i - 1], Max[j + (1 << i - 1)][i - 1]);
             Min[j][i] = min(Min[j][i - 1], Min[j + (1 << i - 1)][i - 1]);
         }
+    }
 
     for (int T = 1; T <= m; T++) {
         int limit;
@@ -122,8 +124,9 @@ void work() {
         int R = 1;
         int ans = 0;
         for (int i = 1; i <= n; i++) {
-            while (R <= n && get_max(i, R) - get_min(i, R) <= limit)
+            while (R <= n && get_max(i, R) - get_min(i, R) <= limit) {
                 R++;
+            }
             ans = max(ans, R - i);
         }
         printf("%d\n", ans);
@@ -133,12 +136,14 @@ void work() {
 
 int main() {
     Log[1] = 0;
-    for (int i = 2; i <= 50000; i++)
+    for (int i = 2; i <= 50000; i++) {
         Log[i] = Log[i - 1] + (i == lowbit(i));
+    }
     while (1) {
         scanf("%d%d", &n, &m);
-        if (n == 0 && m == 0)
+        if (n == 0 && m == 0) {
             break;
+        }
         work();
     }
     return 0;

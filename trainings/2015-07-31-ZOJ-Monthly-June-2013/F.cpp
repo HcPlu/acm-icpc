@@ -41,5 +41,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d", &n); solve());
+    for (; ~scanf("%d", &n); solve()) {
+    }
 }

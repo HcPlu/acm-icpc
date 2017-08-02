@@ -21,8 +21,9 @@ void solve(void) {
     for (int i = 1; i <= n; i++) {
         int x;
         scanf("%d", &x);
-        if (x == 0)
+        if (x == 0) {
             continue;
+        }
         if (x > 0) {
             if (base > 0) {
                 answer -= x * 1. / 100 * log(x * 1. / 100) / log(base);
@@ -36,5 +37,6 @@ void solve(void) {
 
 int main(void) {
     int tests;
-    for (scanf("%d\n", &tests); tests--; solve());
+    for (scanf("%d\n", &tests); tests--; solve()) {
+    }
 }

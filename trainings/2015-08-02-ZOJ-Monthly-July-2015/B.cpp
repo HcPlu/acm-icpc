@@ -5,10 +5,11 @@ using namespace std;
 int main() {
     int n;
     while (scanf("%d", &n) == 1) {
-        if (n == 0)
+        if (n == 0) {
             puts("fail");
-        else
+        } else {
             puts("win");
+        }
     }
     return 0;
 }

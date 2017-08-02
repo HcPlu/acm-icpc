@@ -114,5 +114,6 @@ void solve() {
 }
 
 int main(void) {
-    for (; scanf("%d%d", &k, &n) == 2; solve());
+    for (; scanf("%d%d", &k, &n) == 2; solve()) {
+    }
 }

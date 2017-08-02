@@ -66,10 +66,11 @@ void modify(int x, int l, int r, int pos, int to) {
         return;
     }
     int mid = (l + r) >> 1;
-    if (pos <= mid)
+    if (pos <= mid) {
         modify(lc, l, mid, pos, to);
-    else
+    } else {
         modify(rc, mid + 1, r, pos, to);
+    }
     T[x] = T[x << 1] + T[x << 1 | 1];
 }
 
@@ -79,10 +80,12 @@ Node query(int x, int l, int r, int ll, int rr) {
     }
     int mid = (l + r) >> 1;
     Node ret = Node();
-    if (ll <= mid)
+    if (ll <= mid) {
         ret = ret + query(lc, l, mid, ll, rr);
-    if (rr > mid)
+    }
+    if (rr > mid) {
         ret = ret + query(rc, mid + 1, r, ll, rr);
+    }
     return ret;
 
 }
@@ -91,8 +94,9 @@ void solve() {
     int n, m;
     scanf("%d%d", &n, &m);
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
 
     build(1, 1, n);
     for (int i = 1; i <= m; i++) {

@@ -24,8 +24,9 @@ void solve() {
         }
     }
     char digit[111];
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++) {
         digit[i] = i + '0';
+    }
     for (int i = 10; i < 16; i++) {
         digit[i] = i - 10 + 'A';
     }
@@ -42,6 +43,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d", &n, &m) == 2; solve());
+    for (; scanf("%d%d", &n, &m) == 2; solve()) {
+    }
     return 0;
 }

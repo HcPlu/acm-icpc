@@ -3,9 +3,11 @@
 using namespace std;
 
 bool isprime(int x) {
-    for (int i = 2; i * i <= 150; i++)
-        if (x % i == 0)
+    for (int i = 2; i * i <= 150; i++) {
+        if (x % i == 0) {
             return false;
+        }
+    }
     return true;
 }
 
@@ -17,10 +19,11 @@ int main() {
     scanf("%d", &n);
     while (n) {
         printf("%d:", n);
-        if (ans[n])
+        if (ans[n]) {
             puts("Prime");
-        else
+        } else {
             puts("NotPrime");
+        }
         scanf("%d", &n);
     }
     return 0;

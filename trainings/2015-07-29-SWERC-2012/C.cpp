@@ -17,9 +17,11 @@ int times(int x, int y) {
 
 int pow(int x, int y) {
     int ans = 1;
-    for (; y; y >>= 1, x = times(x, x))
-        if (y & 1)
+    for (; y; y >>= 1, x = times(x, x)) {
+        if (y & 1) {
             ans = times(ans, x);
+        }
+    }
     return ans;
 }
 

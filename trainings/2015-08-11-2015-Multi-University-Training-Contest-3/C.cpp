@@ -14,16 +14,21 @@ int a[N];
 
 Matrix mul(Matrix m1, Matrix m2) {
     Matrix tmp;
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= n; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
             tmp.g[i][j] = 0;
-    for (int k = 1; k <= n; k++)
-        for (int i = 1; i <= n; i++)
+        }
+    }
+    for (int k = 1; k <= n; k++) {
+        for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
                 tmp.g[i][j] += m1.g[i][k] * m2.g[k][j];
-                if (tmp.g[i][j] > MO)
+                if (tmp.g[i][j] > MO) {
                     tmp.g[i][j] %= MO;
+                }
             }
+        }
+    }
     return tmp;
 }
 
@@ -31,8 +36,9 @@ Matrix matrix_pow(int cnt) {
     Matrix tmp = matrix_pow(cnt / 2);
     if (cnt & 1) {
         return mul(mul(tmp, tmp), mat);
-    } else
+    } else {
         return mul(tmp, tmp);
+    }
 }
 
 bool check(int p1, int p2) {
@@ -42,18 +48,21 @@ bool check(int p1, int p2) {
     //cout << s1 + 1 << " " << s2 + 1 << endl;
     int len1 = strlen(s1 + 1);
     int len2 = strlen(s2 + 1);
-    if (min(len1, len2) < 2)
+    if (min(len1, len2) < 2) {
         return 0;
+    }
     int len = min(len1, len2);
 
     for (int i = 2; i <= len; i++) {
         int flg = 1;
         for (int j = 1; j <= i; j++) {
-            if (s1[len1 - i + j] != s2[j])
+            if (s1[len1 - i + j] != s2[j]) {
                 flg = 0;
+            }
         }
-        if (flg)
+        if (flg) {
             return 1;
+        }
     }
     return 0;
 }
@@ -72,14 +81,17 @@ void solve() {
         return;
     }
 
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= n; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
             mat.g[i][j] = 0;
+        }
+    }
 
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
-            if (check(i, j))
+            if (check(i, j)) {
                 mat.g[i][j] = 1;
+            }
         }
     }
 
@@ -98,11 +110,12 @@ void solve() {
 
     long long ans = 0;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= n; j++) {
             ans += ans_matrix.g[i][j];
             ans %= MO;
         }
+    }
 
     printf("%d\n", (int)ans);
 }

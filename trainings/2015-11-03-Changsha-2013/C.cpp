@@ -147,6 +147,7 @@ void solve() {
 }
 
 int main() {
-    for (; ~scanf("%lf%lf%lf%lf%lf%lf%lf", &radiusM, &radiusR, &radius, &x, &y, &vx, &vy); solve());
+    for (; ~scanf("%lf%lf%lf%lf%lf%lf%lf", &radiusM, &radiusR, &radius, &x, &y, &vx, &vy); solve()) {
+    }
     return 0;
 }

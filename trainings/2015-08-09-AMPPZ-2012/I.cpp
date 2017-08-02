@@ -30,11 +30,13 @@ void merge(int x, int y) {
 int main() {
     int n;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         f[i] = i;
+    }
 
     int top = 0;
     stack[++top] = a[1];
@@ -52,18 +54,21 @@ int main() {
     }
 
     static pair<int, int> tmp[N];
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         tmp[i] = make_pair(find(i), i);
+    }
 
     sort(tmp + 1, tmp + 1 + n);
     int answer = 0;
     for (int i = 1, j; i <= n; i = j) {
-        for (j = i; j <= n && tmp[j].first == tmp[i].first; ++j);
+        for (j = i; j <= n && tmp[j].first == tmp[i].first; ++j) {
+        }
         answer++;
     }
     printf("%d\n", answer);
     for (int i = 1, j; i <= n; i = j) {
-        for (j = i; j <= n && tmp[j].first == tmp[i].first; ++j);
+        for (j = i; j <= n && tmp[j].first == tmp[i].first; ++j) {
+        }
         printf("%d", j - i);
         for (j = i; j <= n && tmp[j].first == tmp[i].first; ++j) {
             printf(" %d", tmp[j].second);

@@ -94,8 +94,9 @@ void solve() {
             modify_right(r, 1);
         } else {
             int num = query[type][now1++];
-            if (deleted[num])
+            if (deleted[num]) {
                 continue;
+            }
             deleted[num] = 1;
             int l = find(query[0][num - 1]);
             int r = find(query[0][num - 1] + num - 1);

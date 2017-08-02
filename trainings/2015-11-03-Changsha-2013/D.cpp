@@ -154,5 +154,6 @@ int main(void) {
     tran.item[0][0] = 1, tran.item[0][1] = 1;
     tran.item[1][0] = 1, tran.item[1][1] = 0;
 
-    for (; std::cin >> n; solve());
+    for (; std::cin >> n; solve()) {
+    }
 }

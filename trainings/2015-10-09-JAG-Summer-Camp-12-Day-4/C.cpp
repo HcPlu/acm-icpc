@@ -57,12 +57,14 @@ int main() {
                 }
                 if (num2 + 1 <= length[i]) {
                     int exist = (t.first >> (c - 1) & 1);
-                    if (exist != 0)
+                    if (exist != 0) {
                         exist = length[i - 1] - num1 + 1;
+                    }
                     char up = type[i - 1][exist];
                     exist = (t.first & 1);
-                    if (exist != 0)
+                    if (exist != 0) {
                         exist = num2;
+                    }
                     char left = type[i][exist];
                     t.second = t.second + (up == type[i][num2 + 1]) + (left == type[i][num2 + 1]);
                     current.push_back(make_pair(next(t.first) | 1, t.second));
@@ -72,8 +74,9 @@ int main() {
         }
     }
     int ans = 0;
-    for (int i = 0; i < f[now].size(); i++)
+    for (int i = 0; i < f[now].size(); i++) {
         ans = max(ans, f[now][i].second);
+    }
     printf("%d\n", ans * 2);
     return 0;
 }

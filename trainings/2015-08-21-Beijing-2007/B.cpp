@@ -8,7 +8,8 @@ __inline bool intersect(int x1, int y1, int x2, int y2) {
 
 __inline int input() {
     char token = getchar();
-    for (; !isdigit(token); token = getchar());
+    for (; !isdigit(token); token = getchar()) {
+    }
     int number = token - '0';
     for (token = getchar(); isdigit(token); token = getchar()) {
         number = number * 10 + token - '0';

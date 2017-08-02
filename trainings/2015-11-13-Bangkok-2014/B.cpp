@@ -57,5 +57,6 @@ int main(void) {
         }
     }
 
-    for (; ~scanf("%lld%lld", &l, &r) && (l || r); solve());
+    for (; ~scanf("%lld%lld", &l, &r) && (l || r); solve()) {
+    }
 }

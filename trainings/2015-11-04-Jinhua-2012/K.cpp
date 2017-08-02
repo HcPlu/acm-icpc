@@ -7,10 +7,11 @@
 
 using namespace std;
 
+const int dx[5] = {0, -1, 0, 1, 0};
+const int dy[5] = {0, 0, -1, 0, 1};
+
 int n, bh[277];
 int rev[6];
-int dx[5] = {0, -1, 0, 1, 0};
-int dy[5] = {0, 0, -1, 0, 1};
 
 pair<int, pair<int, int> > go(pair<int, int> now, int dir, int go) {
     for (int i = 1; i <= go; i++) {

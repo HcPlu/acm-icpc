@@ -9,21 +9,26 @@ int num[11], mypow[11], w[11], target;
 int l, r;
 
 int place(int tp, int pos, int state) {
-    if (tp == 1)
+    if (tp == 1) {
         return 1;
+    }
     int up = pos - 3;
     int down = pos + 3;
     int left = pos - 1;
     int right = pos + 1;
     cnt[0] = cnt[1] = cnt[2] = cnt[3] = cnt[4] = 0;
-    if (up >= 1)
+    if (up >= 1) {
         ++cnt[num[up]];
-    if (down <= 9)
+    }
+    if (down <= 9) {
         ++cnt[num[down]];
-    if (left % 3 > 0)
+    }
+    if (left % 3 > 0) {
         ++cnt[num[left]];
-    if (right % 3 != 1)
+    }
+    if (right % 3 != 1) {
         ++cnt[num[right]];
+    }
     if (tp == 2) {
         return (cnt[1] > 0);
     } else {
@@ -82,8 +87,9 @@ int start = 0;
 
 void solve() {
     for (int now = 1; now <= r; now++) {
-        if (dist[q[now]] < 0)
+        if (dist[q[now]] < 0) {
             continue;
+        }
         int state = q[now];
         for (int i = 1; i <= 9; i++) {
             num[i] = state % 5;
@@ -105,8 +111,9 @@ void solve() {
 
 int main() {
     mypow[0] = 1;
-    for (int i = 1; i <= 9; i++)
+    for (int i = 1; i <= 9; i++) {
         mypow[i] = mypow[i - 1] * 5;
+    }
     bfs();
     for (; scanf("%d%d%d%d%d", &w[1], &w[2], &w[3], &w[4], &target) == 5;) {
         static int test = 0;

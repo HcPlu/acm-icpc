@@ -33,5 +33,6 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d", &n) == 1 && n; solve());
+    for (; scanf("%d", &n) == 1 && n; solve()) {
+    }
 }

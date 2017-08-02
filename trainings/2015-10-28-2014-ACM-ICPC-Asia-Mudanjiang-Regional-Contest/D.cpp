@@ -14,16 +14,20 @@ double fix(double &x) {
 void work() {
     int n, m;
     scanf("%d%d", &n, &m);
-    for (int i = 0; i <= n * m; i++)
-        for (int j = 0; j <= n; j++)
-            for (int l = 0; l <= m; l++)
+    for (int i = 0; i <= n * m; i++) {
+        for (int j = 0; j <= n; j++) {
+            for (int l = 0; l <= m; l++) {
                 f[i][j][l] = 0;
+            }
+        }
+    }
     f[0][n][m] = 1;
     for (int k = 0; k <= n * m; k++) {
         for (int i = 0; i <= n; i++) {
             for (int j = 0; j <= m; j++) {
-                if (i == 0 && j == 0)
+                if (i == 0 && j == 0) {
                     continue;
+                }
                 double p;
                 double current = f[k][i][j];
                 if (i) {
@@ -51,8 +55,9 @@ void work() {
         }
     }
     double ans = 0;
-    for (int i = 0; i <= n * m; i++)
+    for (int i = 0; i <= n * m; i++) {
         ans += 1. * i * f[i][0][0];
+    }
     printf("%.12f\n", ans);
     return;
 }
@@ -60,6 +65,7 @@ void work() {
 int main() {
     int t;
     scanf("%d", &t);
-    for (int i = 1; i <= t; i++)
+    for (int i = 1; i <= t; i++) {
         work();
+    }
 }

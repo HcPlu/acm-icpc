@@ -21,8 +21,9 @@ int main() {
         }
     }
     sort(t + 1, t + 1 + cnt);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         Max[i] = -0x3f3f3f3f;
+    }
     for (int i = 1; i <= cnt; i++) {
         int c = t[i].first;
         int tmp = Max[t[i].second];
@@ -30,11 +31,14 @@ int main() {
         int a = -0x3f3f3f3f, ida, b = -0x3f3f3f3f, idb;
         for (int j = 1; j <= n; j++) {
             if (Max[j] >= a) {
-                b = a, idb = ida;
+                b = a;
+                idb = ida;
                 a = Max[j];
                 ida = j;
-            } else if (Max[j] >= b)
-                b = Max[j], idb = j;
+            } else if (Max[j] >= b) {
+                b = Max[j];
+                idb = j;
+            }
         }
         if (a + b > c) {
             printf("%d %d %d %d %d %d\n", ida, a, idb, b, t[i].second, c);

@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <cstdlib>
 #include <algorithm>
 #include <vector>
 
@@ -92,5 +91,6 @@ void solve(void) {
 }
 
 int main() {
-    for (; ~scanf("%d%d", &n, &m) && (n || m); solve());
+    for (; ~scanf("%d%d", &n, &m) && (n || m); solve()) {
+    }
 }

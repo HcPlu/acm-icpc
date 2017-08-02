@@ -65,5 +65,6 @@ void solve(void) {
 
 int main(void) {
     int tests;
-    for (scanf("%d", &tests); tests--; solve());
+    for (scanf("%d", &tests); tests--; solve()) {
+    }
 }

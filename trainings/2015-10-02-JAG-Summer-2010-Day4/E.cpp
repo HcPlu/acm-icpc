@@ -108,8 +108,10 @@ Point a[N], b[N];
 double pdist[N], radius[N], angle[N], vmax[N][2];
 
 __inline double fix(double x) {
-    for (; x < -eps; x += 2 * PI);
-    for (; x > 2 * PI - eps; x -= 2 * PI);
+    for (; x < -eps; x += 2 * PI) {
+    }
+    for (; x > 2 * PI - eps; x -= 2 * PI) {
+    }
     return x;
 }
 
@@ -121,14 +123,17 @@ __inline std::pair<Point, Point> vertical(const Point &a, const Point &b) {
 
 int check(double mid, double v0, double v, double d) {
     double dist = v0 * mid + amax * mid * mid / 2;
-    if (dist > d)
+    if (dist > d) {
         return 0;
-    if (v0 + mid * amax < v)
+    }
+    if (v0 + mid * amax < v) {
         return 1;
+    }
     double need = (v0 + mid * amax - v) / amax;
     double nowv = v0 + mid * amax;
-    if (nowv * need - .5 * need * need * amax + dist > d)
+    if (nowv * need - .5 * need * need * amax + dist > d) {
         return 0;
+    }
     return 1;
 }
 
@@ -137,10 +142,11 @@ double get(double v0, double v, double d) {
     int counter = 40;
     while (counter--) {
         double mid = (l + r) / 2;
-        if (check(mid, v0, v, d))
+        if (check(mid, v0, v, d)) {
             l = mid;
-        else
+        } else {
             r = mid;
+        }
     }
 
     double ret = (l + r) / 2;

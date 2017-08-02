@@ -68,5 +68,6 @@ void solve(void) {
 
 int main(void) {
     ios::sync_with_stdio(false);
-    for (; cin >> n >> a >> b >> s >> t; solve());
+    for (; cin >> n >> a >> b >> s >> t; solve()) {
+    }
 }

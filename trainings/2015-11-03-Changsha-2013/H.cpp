@@ -27,7 +27,8 @@ void solve() {
     int edges = 3;
     double answer = 0;
     for (int i = 1; i <= floor; i++) {
-        for (; check(edges, r, h, limit); edges++);
+        for (; check(edges, r, h, limit); edges++) {
+        }
         edges--;
         answer += calc(edges, r, h);
         r += delta;
@@ -38,6 +39,7 @@ void solve() {
 }
 
 int main() {
-    for (; ~scanf("%lf%lf%lf%d%lf", &R, &r, &height, &floor, &limit); solve());
+    for (; ~scanf("%lf%lf%lf%d%lf", &R, &r, &height, &floor, &limit); solve()) {
+    }
     return 0;
 }

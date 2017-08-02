@@ -38,5 +38,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &left, &right) && (left || right); solve());
+    for (; ~scanf("%d%d", &left, &right) && (left || right); solve()) {
+    }
 }

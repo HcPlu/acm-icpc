@@ -36,10 +36,12 @@ int main() {
 
     int cnt1 = 0, cnt2 = 0;
     for (int i = 0; i < 2 * n; i++) {
-        if (player[i].second == 1)
+        if (player[i].second == 1) {
             cnt1++;
-        if (player[i].second == 2)
+        }
+        if (player[i].second == 2) {
             cnt2++;
+        }
 
         for (int j = 0; j <= cnt1 + 1; ++j) {
             for (int k = 0; k <= cnt2 + 1; ++k) {
@@ -47,8 +49,8 @@ int main() {
             }
         }
 
-        for (int j = 0; j <= cnt1; j++)
-            for (int k = 0; k <= cnt2; k++)
+        for (int j = 0; j <= cnt1; j++) {
+            for (int k = 0; k <= cnt2; k++) {
                 if (f[now][j][k]) {
                     (f[now ^ 1][j][k] += f[now][j][k]) %= MO;
 
@@ -62,6 +64,8 @@ int main() {
                         }
                     }
                 }
+            }
+        }
         now ^= 1;
     }
 

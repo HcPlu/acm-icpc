@@ -131,5 +131,6 @@ void solve() {
 
 int main() {
     for (; scanf("%lf%lf%lf%lf%lf", &width, &height, &sa, &sb, &area) &&
-           (width + height + sa + sb + area > eps); solve());
+           (width + height + sa + sb + area > eps); solve()) {
+    }
 }

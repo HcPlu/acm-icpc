@@ -35,8 +35,9 @@ int bfs() {
         int state = now.state;
         int nowdist = dist[x][y][state][lv];
 
-        if (x == ex && y == ey)
+        if (x == ex && y == ey) {
             return nowdist;
+        }
         if (g[x][y] == '|') {
             if (dist[x][y][state][lv ^ 1] == -1) {
                 queue.push_back(State(x, y, state, lv ^ 1));
@@ -61,10 +62,12 @@ int bfs() {
 
         for (int dir = 0; dir < 4; dir++) {
             int nx = x + dx[dir], ny = y + dy[dir], nstate = state, nlv = lv;
-            if (nx < 1 || nx > n || ny > m || ny < 1)
+            if (nx < 1 || nx > n || ny > m || ny < 1) {
                 continue;
-            if (g[nx][ny] == '#')
+            }
+            if (g[nx][ny] == '#') {
                 continue;
+            }
             if (g[nx][ny] == '|') {
                 if (dist[nx][ny][state][lv] == -1) {
                     queue.push_back(State(nx, ny, state, lv));
@@ -93,8 +96,9 @@ void solve() {
         for (int j = 1; j <= m; j++) {
             if (g[i][j] == '_' || (g[i][j] >= 'a' && g[i][j] <= 'j') || g[i][j] == '%' || g[i][j] == '&') {
                 num = 0;
-            } else
+            } else {
                 num = 1;
+            }
             origin[i] ^= (num << j);
         }
     }

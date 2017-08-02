@@ -63,7 +63,8 @@ vector<Point> convex_hull(vector<Point> point) {
         stack.push_back(point[1]);
         for (int i = 2; i < n; ++i) {
             for (; (int)stack.size() >= 2 &&
-                   det(stack[(int)stack.size() - 2], stack.back(), point[i]) <= 0; stack.pop_back());
+                   det(stack[(int)stack.size() - 2], stack.back(), point[i]) <= 0; stack.pop_back()) {
+            }
             stack.push_back(point[i]);
         }
         for (int i = 0; i < (int)stack.size(); ++i) {
@@ -76,7 +77,8 @@ vector<Point> convex_hull(vector<Point> point) {
         stack.push_back(point[n - 2]);
         for (int i = n - 3; i >= 0; --i) {
             for (; (int)stack.size() >= 2 &&
-                   det(stack[(int)stack.size() - 2], stack.back(), point[i]) <= 0; stack.pop_back());
+                   det(stack[(int)stack.size() - 2], stack.back(), point[i]) <= 0; stack.pop_back()) {
+            }
             stack.push_back(point[i]);
         }
         for (int i = 1; i < (int)stack.size() - 1; ++i) {
@@ -143,5 +145,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d", &n) && ~n; solve());
+    for (; ~scanf("%d", &n) && ~n; solve()) {
+    }
 }

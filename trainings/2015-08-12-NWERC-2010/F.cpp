@@ -1,14 +1,10 @@
 #include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
 namespace MF {
-
     const int N = 305, M = 30005;
 
     struct Edgelist {
@@ -40,8 +36,9 @@ namespace MF {
 
     bool relabel() {
         vector<int> queue;
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             curr[i] = e.last[i], dist[i] = -1;
+        }
         queue.push_back(target);
         dist[target] = 0;
         for (int head = 0; head < (int)queue.size(); ++head) {
@@ -58,8 +55,9 @@ namespace MF {
     }
 
     int dfs(int x, int answer) {
-        if (x == target)
+        if (x == target) {
             return answer;
+        }
         int delta = answer;
         for (int &i = curr[x]; ~i; i = e.succ[i]) {
             int y = e.other[i];
@@ -69,16 +67,18 @@ namespace MF {
                 e.flow[i ^ 1] += number;
                 delta -= number;
             }
-            if (delta == 0)
+            if (delta == 0) {
                 break;
+            }
         }
         return answer - delta;
     }
 
     int solve() {
         int answer = 0;
-        while (relabel())
+        while (relabel()) {
             answer += dfs(source, INT_MAX);
+        }
         return answer;
     }
 }
@@ -92,55 +92,70 @@ bool check(int x) {
     MF::e.clear(MF::n);
     MF::source = 0;
     MF::target = MF::n - 1;
-    for (int i = 1; i <= n; i++)
-        if (a[i])
+    for (int i = 1; i <= n; i++) {
+        if (a[i]) {
             MF::add(MF::source, i, a[i]);
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= n; j++)
-            if (map[i][j] == 'Y' && a[i] > 0 && a[j] > 0)
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            if (map[i][j] == 'Y' && a[i] > 0 && a[j] > 0) {
                 MF::add(i, j + n, 0x3f3f3f3f);
+            }
+        }
+    }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         MF::add(i, i + n, 0x3f3f3f3f);
+    }
 
     int need = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         if (a[i]) {
-            if (go[i])
+            if (go[i]) {
                 MF::add(i + n, MF::target, x), need += x;
-            else
+            } else {
                 MF::add(i + n, MF::target, 1), need += 1;
+            }
         }
+    }
     int t = MF::solve();
     //	printf("%d %d\n", t, need);
-    if (t == need)
+    if (t == need) {
         return true;
-    else
+    } else {
         return false;
+    }
 }
 
 void work() {
     int sum = 0;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
-        scanf("%d", &a[i]), sum += a[i], go[i] = false;
-    for (int i = 1; i <= n; i++)
-        scanf("%s", map[i] + 1);
     for (int i = 1; i <= n; i++) {
-        if (a[i])
+        scanf("%d", &a[i]), sum += a[i], go[i] = false;
+    }
+    for (int i = 1; i <= n; i++) {
+        scanf("%s", map[i] + 1);
+    }
+    for (int i = 1; i <= n; i++) {
+        if (a[i]) {
             continue;
-        for (int j = 1; j <= n; j++)
-            if (map[i][j] == 'Y' && a[j])
+        }
+        for (int j = 1; j <= n; j++) {
+            if (map[i][j] == 'Y' && a[j]) {
                 go[j] = true;
+            }
+        }
     }
     int ans = 0, left = 1, right = sum;
     //printf("%d\n", check(4));
     while (left <= right) {
         int mid = left + right >> 1;
-        if (check(mid))
+        if (check(mid)) {
             ans = mid, left = mid + 1;
-        else
+        } else {
             right = mid - 1;
+        }
     }
     printf("%d\n", ans);
     return;
@@ -149,7 +164,8 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         work();
+    }
     return 0;
 }

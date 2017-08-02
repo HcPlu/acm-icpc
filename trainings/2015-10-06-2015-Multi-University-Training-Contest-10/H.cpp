@@ -23,12 +23,15 @@ void build(int x, int y) {
 
 void work() {
     scanf("%d%d", &n, &m);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         du[i] = 0, adj1[i].clear(), adj2[i].clear();
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         a[i].reset();
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         a[i][i] = 1;
+    }
     tot = 0;
     for (int i = 1; i <= m; i++) {
         int p, q;
@@ -37,9 +40,11 @@ void work() {
         du[q]++;
     }
     int head = 0, tail = 0;
-    for (int i = 1; i <= n; i++)
-        if (!du[i])
+    for (int i = 1; i <= n; i++) {
+        if (!du[i]) {
             team[++tail] = i, dfn[i] = tail;
+        }
+    }
     while (head < tail) {
         int u = team[++head];
         for (int i = 0; i < adj1[u].size(); i++) {
@@ -61,8 +66,9 @@ void work() {
         sort(temp.begin(), temp.end());
         for (int j = 0; j < temp.size(); j++) {
             int to = temp[j].second;
-            if (a[x][to] == 1)
+            if (a[x][to] == 1) {
                 counter++;
+            }
             a[x] |= a[to];
         }
     }
@@ -73,7 +79,8 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         work();
+    }
     return 0;
 }

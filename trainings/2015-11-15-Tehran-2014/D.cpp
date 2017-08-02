@@ -61,6 +61,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d%d", &n, &source, &target) && (n > 0 || source > 0 || target > 0); solve());
+    for (; scanf("%d%d%d", &n, &source, &target) && (n > 0 || source > 0 || target > 0); solve()) {
+    }
     return 0;
 }

@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int mod = 2015;
+
 int n, m, g[55][55], origin[55], answer[55];
 
 class Matrix {
@@ -14,22 +16,24 @@ public:
 
     Matrix operator *(const Matrix &b) {
         Matrix c;
-        for (int k = 1; k <= n + 1; k++)
-            for (int i = 1; i <= n + 1; i++)
+        for (int k = 1; k <= n + 1; k++) {
+            for (int i = 1; i <= n + 1; i++) {
                 for (int j = 1; j <= n + 1; j++) {
                     c.a[i][j] += a[i][k] * b.a[k][j];
                     c.a[i][j] %= mod;
                 }
+            }
+        }
         return c;
     }
 
     void print() {
-        for (int i = 1; i <= n + 1; i++, puts(""))
+        for (int i = 1; i <= n + 1; i++, puts("")) {
             for (int j = 1; j <= n + 1; j++) {
                 printf("%d ", a[i][j]);
             }
+        }
     }
-
 };
 
 void solve() {
@@ -74,8 +78,9 @@ void solve() {
         matrix = matrix * matrix;
     }
 
-    for (int i = 1; i <= n + 1; i++)
+    for (int i = 1; i <= n + 1; i++) {
         answer[i] = 0;
+    }
 
     for (int i = 1; i <= n + 1; i++) {
         for (int j = 1; j <= n + 1; j++) {

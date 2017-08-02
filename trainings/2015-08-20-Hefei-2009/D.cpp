@@ -12,5 +12,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; scanf("%d%d%d", &a, &b, &c) && (a + b + c); solve());
+    for (; scanf("%d%d%d", &a, &b, &c) && (a + b + c); solve()) {
+    }
 }

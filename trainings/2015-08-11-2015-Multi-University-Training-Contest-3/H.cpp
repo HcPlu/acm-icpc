@@ -11,16 +11,19 @@ int l, r;
 long long ans = 0;
 
 void dfs(long long x, long long y) {
-    if (y >= ans)
+    if (y >= ans) {
         return;
-    if (x < 0)
+    }
+    if (x < 0) {
         return;
+    }
     if (x == 0) {
         ans = min(ans, y);
         return;
     }
-    if (x < y - x + 1)
+    if (x < y - x + 1) {
         return;
+    }
     dfs(2LL * (x - 1) - y, y);
     dfs(2LL * (x - 1) - y + 1, y);
     dfs(x, 2LL * y - x);
@@ -28,20 +31,21 @@ void dfs(long long x, long long y) {
     return;
 }
 
-
 void work() {
     ans = INF;
     dfs(l, r);
-    if (ans == INF)
+    if (ans == INF) {
         puts("-1");
-    else
+    } else {
         printf("%lld\n", ans);
+    }
     return;
 }
 
 int main() {
-    while (scanf("%d%d", &l, &r) == 2)
+    while (scanf("%d%d", &l, &r) == 2) {
         work();
+    }
     return 0;
 }
 	

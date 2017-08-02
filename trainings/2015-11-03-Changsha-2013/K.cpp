@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 const int change[6][24] = {{0, 1,  2,  3,  4, 5,  6,  7,  8,  9,  21, 20, 10, 11, 12, 13, 18, 16, 19, 17, 15, 14, 22, 23},
                            {0, 1,  2,  3,  4, 5,  6,  7,  8,  9,  12, 13, 14, 15, 21, 20, 17, 19, 16, 18, 11, 10, 22, 23},
                            {0, 1,  11, 5,  4, 16, 12, 6,  2,  9,  10, 17, 13, 7,  3,  15, 14, 8,  18, 19, 20, 21, 22, 23},
@@ -14,7 +16,6 @@ const int face[6][4] = {{0,  1,  2,  3},
                         {16, 17, 18, 19},
                         {20, 21, 22, 23}};
 
-using namespace std;
 int n, number[24], col[24], answer;
 
 void check() {
@@ -66,6 +67,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d", &n) == 1; solve());
+    for (; scanf("%d", &n) == 1; solve()) {
+    }
     return 0;
 }

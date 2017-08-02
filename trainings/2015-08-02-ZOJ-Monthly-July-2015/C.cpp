@@ -146,8 +146,9 @@ int main() {
                     continue;
                 }
                 if (tmp == "Caps") {
-                    if (caps_push)
+                    if (caps_push) {
                         continue;
+                    }
                     caps_push = 1;
                     caps_on ^= 1;
                     continue;
@@ -157,8 +158,9 @@ int main() {
                     continue;
                 }
                 if (tmp == "Backspace") {
-                    if (anslen)
+                    if (anslen) {
                         --anslen;
+                    }
                     continue;
                 }
                 if (tmp == "Space") {
@@ -198,8 +200,9 @@ int main() {
             }
         }
 
-        for (int i = 1; i <= anslen; i++)
+        for (int i = 1; i <= anslen; i++) {
             putchar(ans[i]);
+        }
         puts("");
     }
 }

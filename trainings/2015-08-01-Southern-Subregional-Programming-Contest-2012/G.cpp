@@ -15,14 +15,16 @@ int main() {
     for (int i = 2; i <= n; i++) {
         scanf("%s", type + 1);
         scanf("%d", &x);
-        if (type[1] == 'd')
+        if (type[1] == 'd') {
             Q.push(make_pair(-x, i));
-        else {
+        } else {
             int need = x - 1;
-            if (i == n)
+            if (i == n) {
                 need = 0x3f3f3f3f;
-            while (Q.size() > need)
+            }
+            while (Q.size() > need) {
                 Q.pop();
+            }
         }
     }
     if (Q.size() < x) {
@@ -40,8 +42,9 @@ int main() {
     sort(ans.begin(), ans.end());
     printf("%d\n", CC);
     printf("%d\n", (int)ans.size());
-    for (int i = 0; i < ans.size(); i++)
+    for (int i = 0; i < ans.size(); i++) {
         printf("%d ", ans[i]);
+    }
     puts("");
     return 0;
 }

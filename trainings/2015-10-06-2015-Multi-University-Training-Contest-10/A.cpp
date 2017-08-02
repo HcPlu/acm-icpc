@@ -60,11 +60,13 @@ void solve() {
         }
     }
 
-    for (int i = 0; i <= n; i++)
-        for (int j = 0; j <= counter; j++)
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= counter; j++) {
             for (int k = 0; k < 2; k++) {
                 tree[k][i][j] = 0;
             }
+        }
+    }
 
     a[0].second = 1;
     int ans = 0;

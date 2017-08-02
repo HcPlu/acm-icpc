@@ -23,7 +23,6 @@ void solve() {
     int left = (int)ceil(avb + eps);
     int right = (int)floor(ava - eps);
     printf("%d %d\n", left, right);
-
 }
 
 int main() {

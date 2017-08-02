@@ -35,8 +35,9 @@ set<pair<int, int> > Q;
 void work() {
     Q.clear();
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
     int cnt = 0;
     for (int i = 1; i <= n; i++) {
         c[2 * i - 2] = -1;
@@ -53,16 +54,18 @@ void work() {
     reverse(pos + 1, pos + 1 + 2 * n + 1);
     int ans = 0;
     for (int i = 1; i <= 2 * n + 1; i++) {
-        if (pos[i].second % 2 == 0)
+        if (pos[i].second % 2 == 0) {
             continue;
+        }
         if (i != 1) {
             set<pair<int, int> >::iterator it1 = Q.lower_bound(make_pair(pos[i].second - pos[i].first + 1, 0));
             if (it1 != Q.end()) {
                 ans = max((pos[i].second - (*it1).first) / 2, ans);
             }
             set<pair<int, int> >::iterator it2 = Q.lower_bound(make_pair(pos[i].second + pos[i].first, 0));
-            if (it2 != Q.begin())
+            if (it2 != Q.begin()) {
                 it2--;
+            }
             if ((*it2).first - pos[i].second + 1 <= pos[i].first) {
                 ans = max(((*it2).first - pos[i].second) / 2, ans);
             }
@@ -77,7 +80,8 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         printf("Case #%d: ", i), work();
+    }
     return 0;
 }

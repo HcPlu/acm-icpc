@@ -7,10 +7,12 @@ int digit[22];
 int f[22][(1 << 9) * 10 + 17];
 
 int dfs(int now, int sum, int up) {
-    if (now < 0)
+    if (now < 0) {
         return sum >= 0;
-    if (sum < 0)
+    }
+    if (sum < 0) {
         return 0;
+    }
 
     if (!up && f[now][sum] != -1) {
         return f[now][sum];

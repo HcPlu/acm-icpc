@@ -44,12 +44,14 @@ void solve(void) {
             }
             stacknum.push_back(number);
         } else {
-            for (; !stackop.empty() && priority[stackop.back()] >= priority[text[i]]; process());
+            for (; !stackop.empty() && priority[stackop.back()] >= priority[text[i]]; process()) {
+            }
             stackop.push_back(text[i]);
             j = i + 1;
         }
     }
-    for (; !stackop.empty(); process());
+    for (; !stackop.empty(); process()) {
+    }
     printf("%d\n", stacknum.back());
 }
 
@@ -58,5 +60,6 @@ int main(void) {
     priority['+'] = priority['-'] = 1;
 
     int tests;
-    for (scanf("%d\n", &tests); tests--; solve());
+    for (scanf("%d\n", &tests); tests--; solve()) {
+    }
 }

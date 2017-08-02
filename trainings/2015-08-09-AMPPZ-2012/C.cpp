@@ -11,15 +11,18 @@ int num[N][2], a[N];
 int main() {
     int n, k;
     scanf("%d%d", &n, &k);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
     for (int i = 1; i <= k; i++) {
         int st = i;
-        while (st <= n)
+        while (st <= n) {
             num[i][a[st] & 1]++, st += k;
+        }
     }
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i <= n; i++) {
         f[i][0] = f[i][1] = 0x3f3f3f3f;
+    }
     f[0][0] = 0;
     for (int i = 1; i <= k; i++) {
         for (int j = 0; j <= 1; j++) {

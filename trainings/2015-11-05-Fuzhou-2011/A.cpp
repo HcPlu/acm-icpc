@@ -27,43 +27,51 @@ int check(int a, int b, int c) {
 int cango(int x, int y, int dir) {
     if (dir == 0) {
         x--;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 1) {
         x--;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 2) {
         y++;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 3) {
         y++;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 4) {
         x++;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 5) {
         x++;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 6) {
         y--;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     if (dir == 7) {
         y--;
-        if (board[x][y])
+        if (board[x][y]) {
             return 0;
+        }
     }
     return 1;
 }
@@ -206,6 +214,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d%d", &n, &gx, &gy) && (n || gx || gy); solve());
+    for (; scanf("%d%d%d", &n, &gx, &gy) && (n || gx || gy); solve()) {
+    }
     return 0;
 }

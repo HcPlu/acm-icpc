@@ -96,5 +96,6 @@ void solve() {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &n, &m) && (n || m); solve());
+    for (; ~scanf("%d%d", &n, &m) && (n || m); solve()) {
+    }
 }

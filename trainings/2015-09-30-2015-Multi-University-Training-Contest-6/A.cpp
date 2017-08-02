@@ -1,7 +1,9 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 111111;
+
 int n;
 int a[N], b[N];
 pair<int, int> ans[N];
@@ -14,8 +16,9 @@ void recover() {
 
 int check() {
     for (int i = 0; i < n; i++) {
-        if (a[i] != a[(i + 1) % n])
+        if (a[i] != a[(i + 1) % n]) {
             return 0;
+        }
     }
     return 1;
 }

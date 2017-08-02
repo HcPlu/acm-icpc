@@ -86,8 +86,10 @@ void solve(void) {
     }
 
     std::vector<int> result;
-    for (; !answer.empty(); result.push_back(answer.front()), answer.pop());
-    for (; !pool.empty(); result.push_back(pool.front()), pool.pop());
+    for (; !answer.empty(); result.push_back(answer.front()), answer.pop()) {
+    }
+    for (; !pool.empty(); result.push_back(pool.front()), pool.pop()) {
+    }
 
     std::reverse(result.begin(), result.end());
     for (int i = 0; i < (int)result.size(); ++i) {
@@ -96,5 +98,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; scanf("%d", &n) && n; solve());
+    for (; scanf("%d", &n) && n; solve()) {
+    }
 }

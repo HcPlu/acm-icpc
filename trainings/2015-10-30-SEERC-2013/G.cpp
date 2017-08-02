@@ -9,12 +9,15 @@ int a[N], b[N], c[N];
 int n;
 
 int calc(int pos, int now, int post, int prev) {
-    if (!now)
+    if (!now) {
         return 0;
-    if (post && prev)
+    }
+    if (post && prev) {
         return c[pos];
-    if (post || prev)
+    }
+    if (post || prev) {
         return b[pos];
+    }
     return a[pos];
 }
 
@@ -46,6 +49,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d", &n) == 1; solve());
+    for (; scanf("%d", &n) == 1; solve()) {
+    }
     return 0;
 }

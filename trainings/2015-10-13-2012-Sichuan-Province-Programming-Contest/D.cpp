@@ -51,8 +51,9 @@ void solve() {
     for (int i = 1; i <= n; i++) {
         scanf("%d%d", &a[i], &x[i]);
         sum[a[i]] += x[i];
-        if (a[i] > N)
+        if (a[i] > N) {
             N = a[i];
+        }
         tot += x[i];
     }
 
@@ -79,8 +80,9 @@ void solve() {
                 sum[j] -= need;
                 need = 0;
             }
-            if (!need)
+            if (!need) {
                 break;
+            }
         }
         if (need) {
             print(i);

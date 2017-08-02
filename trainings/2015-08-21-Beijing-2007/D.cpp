@@ -5,9 +5,9 @@
 #include <map>
 #include <iostream>
 
-const int N = 111;
-
 using namespace std;
+
+const int N = 111;
 
 bool update(pair<int, int> p1, pair<int, int> &p2) {
     int a = p1.second, b = p1.first, c = p2.second, d = p2.first;
@@ -40,14 +40,16 @@ void solve(void) {
     vector<string> vec;
     vec.clear();
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < n; ++i) {
         h[i].clear();
+    }
 
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j + k - 1 < (int)text[i].size(); ++j) {
             string str = text[i].substr(j, k);
-            if (occur.find(str) != occur.end())
+            if (occur.find(str) != occur.end()) {
                 vec.push_back(str);
+            }
             if (!h[i][str]) {
                 h[i][str] = 1;
                 occur[str]++;
@@ -62,8 +64,9 @@ void solve(void) {
     pair<int, int> now = make_pair(1, 1);
     string ans = "No solution";
     for (int i = 0; i < (int)vec.size(); i++) {
-        if (occur[vec[i]] < m)
+        if (occur[vec[i]] < m) {
             continue;
+        }
         int p = yes[vec[i]], q = occur[vec[i]];
         if (update(make_pair(p, q), now)) {
             ans = vec[i];

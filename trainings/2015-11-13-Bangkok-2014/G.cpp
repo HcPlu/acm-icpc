@@ -14,9 +14,11 @@ int dy[9] = {0, 0, 1, -1, 0, 1, -1, 1, -1};
 void work() {
     int n, m;
     scanf("%d%d", &n, &m);
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             scanf("%d", &num[i][j]);
+        }
+    }
     if (n == 1 && m == 1) {
         if (num[1][1] == 0) {
             puts("-");
@@ -34,8 +36,9 @@ void work() {
             for (int k = 1; k <= 8; k++) {
                 int ux = i + dx[k];
                 int uy = 1 + dy[k];
-                if (ux == 0 || uy == 0 || ux > n || uy > m)
+                if (ux == 0 || uy == 0 || ux > n || uy > m) {
                     continue;
+                }
                 num[ux][uy]--;
             }
         }
@@ -46,8 +49,9 @@ void work() {
                 for (int k = 1; k <= 8; k++) {
                     int ux = i + dx[k];
                     int uy = j + dy[k];
-                    if (ux == 0 || uy == 0 || ux > n || uy > m)
+                    if (ux == 0 || uy == 0 || ux > n || uy > m) {
                         continue;
+                    }
                     num[ux][uy]--;
                 }
             } else {
@@ -62,16 +66,19 @@ void work() {
             for (int k = 1; k <= 8; k++) {
                 int ux = i + dx[k];
                 int uy = m + dy[k];
-                if (ux == 0 || uy == 0 || ux > n || uy > m)
+                if (ux == 0 || uy == 0 || ux > n || uy > m) {
                     continue;
+                }
                 num[ux][uy]--;
             }
         }
 
     }
-    for (int i = 1; i <= n; i++, puts(""))
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++, puts("")) {
+        for (int j = 1; j <= m; j++) {
             printf("%c", ans[i][j]);
+        }
+    }
     return;
 }
 

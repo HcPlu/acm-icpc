@@ -64,8 +64,9 @@ int main() {
         C[i][1] = C[i][i] = 1;
         for (int j = 1; j < i; j++) {
             C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
-            if (C[i][j] >= mod)
+            if (C[i][j] >= mod) {
                 C[i][j] -= mod;
+            }
         }
     }
     for (int i = 1; i <= T; i++) {

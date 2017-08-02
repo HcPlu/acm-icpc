@@ -103,5 +103,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &n, &m); solve());
+    for (; ~scanf("%d%d", &n, &m); solve()) {
+    }
 }

@@ -3,11 +3,12 @@
 
 using namespace std;
 
-const int N = 100;
 const int dx[] = {0, 0, 0, 1, -1};
 const int dy[] = {0, 1, -1, 0, 0};
 
-struct Runins {
+const int N = 100;
+
+struct {
     int x, y, bonus;
 } pos[10];
 
@@ -22,31 +23,38 @@ queue<pair<int, int> > Q;
 vector<pair<int, int> > land[N * N * 2];
 
 void chkmax(int &x, int y) {
-    if (y <= x)
+    if (y <= x) {
         return;
+    }
     x = y;
 }
 
 void clear_worker() {
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             conquered[i][j] = -1;
+        }
+    }
 
-    for (int i = 0; i <= max_turn; i++)
+    for (int i = 0; i <= max_turn; i++) {
         land[i].clear();
-    for (int i = 0; i <= max_turn; i++)
+    }
+    for (int i = 0; i <= max_turn; i++) {
         worker_product[i] = 0;
+    }
 }
 
 void calc_worker() {
     clear_worker();
 
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             if (mat[i][j] == '*') {
                 Q.push(make_pair(i, j));
                 conquered[i][j] = 0;
             }
+        }
+    }
 
     for (; !Q.empty(); Q.pop()) {
         pair<int, int> now = Q.front();
@@ -55,21 +63,24 @@ void calc_worker() {
         for (int d = 1; d <= 4; d++) {
             int tx = nx + dx[d];
             int ty = ny + dy[d];
-            if (tx < 1 || tx > n || ty < 1 || ty > m || conquered[tx][ty] > -1 || mat[tx][ty] == 'X')
+            if (tx < 1 || tx > n || ty < 1 || ty > m || conquered[tx][ty] > -1 || mat[tx][ty] == 'X') {
                 continue;
+            }
             conquered[tx][ty] = nturn + 5;
             Q.push(make_pair(tx, ty));
         }
     }
 
-    for (int i = 0; i <= 50; i++)
+    for (int i = 0; i <= 50; i++) {
         worker[i] = 0;
+    }
 
     int nowsum = 0;
     int cnt = 0;
     priority_queue<int> heap;
-    while (!heap.empty())
+    while (!heap.empty()) {
         heap.pop();
+    }
     for (int turns = 0; turns <= max_turn; turns++) {
         worker_product[turns + 1] = 0;
         if (turns % 5 == 0) {
@@ -80,18 +91,20 @@ void calc_worker() {
             if (!heap.empty()) {
                 int nowproduct = heap.top();
                 heap.pop();
-                if (nowproduct == 0)
+                if (nowproduct == 0) {
                     continue;
+                }
                 worker[nowproduct]++;
             }
         }
 
-        for (int i = 1; i <= 50; i++)
+        for (int i = 1; i <= 50; i++) {
             if (worker[i] > 0) {
                 nowsum += worker[i] * i;
                 worker[i - 1] += worker[i];
                 worker[i] = 0;
             }
+        }
         worker_product[turns + 1] = nowsum;
     }
 }
@@ -106,8 +119,9 @@ void bfs(int start) {
         for (int d = 1; d <= 4; d++) {
             int tx = nx + dx[d];
             int ty = ny + dy[d];
-            if (tx < 1 || tx > n || ty < 1 || ty > m || mat[tx][ty] == 'X' || dist[start][tx][ty] > -1)
+            if (tx < 1 || tx > n || ty < 1 || ty > m || mat[tx][ty] == 'X' || dist[start][tx][ty] > -1) {
                 continue;
+            }
             dist[start][tx][ty] = dist[start][nx][ny] + 1;
             Q.push(make_pair(tx, ty));
         }
@@ -115,12 +129,16 @@ void bfs(int start) {
 }
 
 void clear_ruin() {
-    for (int i = 0; i <= 5; i++)
-        for (int j = 1; j <= n; j++)
-            for (int k = 1; k <= m; k++)
+    for (int i = 0; i <= 5; i++) {
+        for (int j = 1; j <= n; j++) {
+            for (int k = 1; k <= m; k++) {
                 dist[i][j][k] = -1;
-    for (int i = 0; i <= max_turn; i++)
+            }
+        }
+    }
+    for (int i = 0; i <= max_turn; i++) {
         ruin_product[i] = 0;
+    }
 }
 
 
@@ -130,8 +148,9 @@ void calc_ruin() {
         bfs(i);
     }
 
-    for (int i = 0; i <= ruins; i++)
+    for (int i = 0; i <= ruins; i++) {
         order[i] = i;
+    }
 
     do {
         int sumturns = 0;
@@ -144,25 +163,29 @@ void calc_ruin() {
                 sumturns += di;
                 sumscore += pos[order[now]].bonus;
                 chkmax(ruin_product[(sumturns + 1) / 2], sumscore);
-            } else
+            } else {
                 break;
+            }
         }
     } while (next_permutation(order + 1, order + ruins + 1));
 
-    for (int i = 1; i <= max_turn; i++)
+    for (int i = 1; i <= max_turn; i++) {
         chkmax(ruin_product[i], ruin_product[i - 1]);
+    }
 
 }
 
 int main() {
     while (scanf("%d%d%d", &n, &m, &target) == 3) {
-        for (int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++) {
             scanf("%s", mat[i] + 1);
+        }
 
-        for (int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
                 scanf("%d", &product[i][j]);
             }
+        }
 
         scanf("%d", &ruins);
 

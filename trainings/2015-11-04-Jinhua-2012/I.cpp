@@ -13,5 +13,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; scanf("%d", &n) && n; solve());
+    for (; scanf("%d", &n) && n; solve()) {
+    }
 }

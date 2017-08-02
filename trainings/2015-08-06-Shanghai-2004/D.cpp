@@ -1,9 +1,11 @@
 #include <iostream>
 #include <queue>
 
-const int INF = 1 << 29;
-const int N = 111111;
 using namespace std;
+
+const int INF = 1 << 29;
+
+const int N = 111111;
 
 pair<int, int> pre[N];
 int dist[N];
@@ -13,8 +15,9 @@ void solve1(int x) {
     pair<int, int> ansnow = make_pair(INF, INF);
     for (int i = 1; i <= 9; i++) {
         int ret = i % x;
-        for (int j = 0; j < x; j++)
+        for (int j = 0; j < x; j++) {
             h[j] = 0;
+        }
         h[ret] = 1;
         if (ret == 0) {
             ansnow = make_pair(1, i);
@@ -27,14 +30,16 @@ void solve1(int x) {
                 ansnow = min(ansnow, make_pair(len + 1, i));
                 break;
             }
-            if (h[ret])
+            if (h[ret]) {
                 break;
+            }
             h[ret] = 1;
         }
     }
     if (ansnow.first < INF) {
-        for (int i = 1; i <= ansnow.first; i++)
+        for (int i = 1; i <= ansnow.first; i++) {
             putchar(ansnow.second + '0');
+        }
         puts("");
         fnd = 1;
     }
@@ -43,10 +48,12 @@ void solve1(int x) {
 void bfs(int p1, int p2, int mo) {
     a[0] = p1;
     a[1] = p2;
-    for (int i = 0; i < mo; i++)
+    for (int i = 0; i < mo; i++) {
         dist[i] = -1;
-    for (int i = 0; i < mo; i++)
+    }
+    for (int i = 0; i < mo; i++) {
         pre[i] = make_pair(-1, -1);
+    }
 
     queue<int> que;
 
@@ -70,8 +77,9 @@ void bfs(int p1, int p2, int mo) {
                 pre[tmp] = make_pair(t, a[i]);
                 dist[tmp] = dist[t] + 1;
                 que.push(tmp);
-                if (tmp == 0)
+                if (tmp == 0) {
                     break;
+                }
             }
         }
     }
@@ -79,8 +87,9 @@ void bfs(int p1, int p2, int mo) {
     int t = 0;
     int cnt = 0;
 
-    if (pre[t].second == -1)
+    if (pre[t].second == -1) {
         return;
+    }
     while (pre[t].first != -1) {
         a[++cnt] = pre[t].second;
         t = pre[t].first;
@@ -92,8 +101,9 @@ void bfs(int p1, int p2, int mo) {
     }
     if (cnt < ans) {
         ans = cnt;
-        for (int i = 1; i <= cnt; i++)
+        for (int i = 1; i <= cnt; i++) {
             outp[i] = a[i];
+        }
         return;
     }
     for (int i = 1; i <= cnt; i++) {
@@ -106,15 +116,18 @@ void bfs(int p1, int p2, int mo) {
         }
     }
 
-    for (int i = 1; i <= cnt; i++)
+    for (int i = 1; i <= cnt; i++) {
         outp[i] = a[i];
+    }
 }
 
 void solve2(int x) {
     ans = INF;
-    for (int i = 0; i <= 9; i++)
-        for (int j = i + 1; j <= 9; j++)
+    for (int i = 0; i <= 9; i++) {
+        for (int j = i + 1; j <= 9; j++) {
             bfs(i, j, x);
+        }
+    }
 }
 
 int n;
@@ -123,11 +136,13 @@ int main() {
     while (scanf("%d", &n) && n > 0) {
         fnd = 0;
         solve1(n);
-        if (fnd)
+        if (fnd) {
             continue;
+        }
         solve2(n);
-        for (int i = 1; i <= ans; i++)
+        for (int i = 1; i <= ans; i++) {
             putchar(outp[i] + '0');
+        }
         puts("");
     }
     return 0;

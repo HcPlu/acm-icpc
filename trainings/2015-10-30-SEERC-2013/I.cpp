@@ -37,7 +37,8 @@ void solve(void) {
 
         gets(buffer);
         std::stringstream os(buffer);
-        for (int y; os >> y; edge[x].push_back(y));
+        for (int y; os >> y; edge[x].push_back(y)) {
+        }
     }
     std::pair<int, int> best = std::make_pair(-1, -n);
     for (int i = 0; i < (int)source.size(); ++i) {
@@ -50,5 +51,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &n, &m); solve());
+    for (; ~scanf("%d%d", &n, &m); solve()) {
+    }
 }

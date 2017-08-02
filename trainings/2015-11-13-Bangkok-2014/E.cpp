@@ -12,5 +12,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; std::cin >> l >> r && (l || r); solve());
+    for (; std::cin >> l >> r && (l || r); solve()) {
+    }
 }

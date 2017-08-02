@@ -1,15 +1,19 @@
 #include <iostream>
 #include <queue>
 
-const int N = 111111;
-const int INF = 1 << 29;
 using namespace std;
+
+const int INF = 1 << 29;
+
+const int N = 111111;
+
 struct Edge {
     int to, nxt, c;
 } nod[N * 2];
-int tot = -1;
-int head[N], dist[N], cur[N], po[N][2], S, T;
+
 int n, m, s1, s2, t1, t2;
+int head[N], dist[N], cur[N], po[N][2], S, T;
+int tot = -1;
 
 void add(int x, int y) {
     nod[++tot].to = y;
@@ -24,8 +28,9 @@ void add(int x, int y) {
 }
 
 bool bfs() {
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         dist[i] = -1;
+    }
     queue<int> que;
     que.push(S);
     dist[S] = 0;
@@ -42,9 +47,9 @@ bool bfs() {
 }
 
 int dfs(int u, int ext) {
-    if (u == T)
+    if (u == T) {
         return ext;
-    else {
+    } else {
         int ret = 0, p = cur[u];
         for (p; p > -1; p = nod[p].nxt, cur[u] = p) {
             if (nod[p].c && dist[nod[p].to] == dist[u] + 1) {
@@ -54,11 +59,13 @@ int dfs(int u, int ext) {
                 ret += flow;
                 ext -= flow;
             }
-            if (ext == 0)
+            if (ext == 0) {
                 break;
+            }
         }
-        if (ext == 0)
+        if (ext == 0) {
             dist[u] = -1;
+        }
         return ret;
     }
 }
@@ -67,8 +74,9 @@ int dfs(int u, int ext) {
 vector<int> ans;
 
 void go(int x) {
-    if (x <= n)
+    if (x <= n) {
         ans.push_back(x);
+    }
     for (int p = head[x]; p > -1; p = nod[p].nxt) {
         if (p % 2 == 0 && nod[p].c == 0) {
             go(nod[p].to);
@@ -91,8 +99,9 @@ void print_ans() {
 void Dinic() {
     int flow = 0;
     while (bfs()) {
-        for (int i = 1; i <= T; i++)
+        for (int i = 1; i <= T; i++) {
             cur[i] = head[i];
+        }
         flow += dfs(S, INF);
     }
     if (flow < 2) {
@@ -107,18 +116,21 @@ void Dinic() {
 int main() {
     scanf("%d%d", &n, &m);
     scanf("%d%d%d%d", &s1, &t1, &s2, &t2);
-    if (s1 > t1)
+    if (s1 > t1) {
         swap(s1, t1);
-    if (s2 > t2)
+    }
+    if (s2 > t2) {
         swap(s2, t2);
+    }
     for (int i = 1; i <= n; i++) {
         po[i][0] = i;
         po[i][1] = i + n;
     }
     tot = -1;
 
-    for (int i = 1; i <= 2 * n + 2; i++)
+    for (int i = 1; i <= 2 * n + 2; i++) {
         head[i] = -1;
+    }
 
     for (int i = 1; i <= n; i++) {
         add(po[i][0], po[i][1]);
@@ -126,8 +138,9 @@ int main() {
     for (int i = 1; i <= m; i++) {
         int u, v;
         scanf("%d%d", &u, &v);
-        if (u > v)
+        if (u > v) {
             swap(u, v);
+        }
         add(po[u][1], po[v][0]);
         add(po[v][1], po[u][0]);
     }

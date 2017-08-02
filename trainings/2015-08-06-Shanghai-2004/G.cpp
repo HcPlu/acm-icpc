@@ -89,7 +89,8 @@ void solve(void) {
         return;
     }
 
-    for (limit = 1; !dfs(0, element); limit++);
+    for (limit = 1; !dfs(0, element); limit++) {
+    }
 
     for (int i = 0; i < size; ++i) {
         putchar('A' + answer[i]);
@@ -99,5 +100,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; read(element); solve());
+    for (; read(element); solve()) {
+    }
 }

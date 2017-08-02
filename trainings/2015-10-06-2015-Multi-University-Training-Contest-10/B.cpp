@@ -1,8 +1,11 @@
 #include <iostream>
 
 using namespace std;
-const int N = 1e6 + 11;
+
 const int mod = 1e9 + 7;
+
+const int N = 1e6 + 11;
+
 int prime[N + 10];
 long long f[N + 10], ok[N + 10];
 

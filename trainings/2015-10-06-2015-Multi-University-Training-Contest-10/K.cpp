@@ -11,7 +11,7 @@ const int N = 100005;
 
 int num[N * 3], tot = 0, k[N * 3], start[N * 3];
 
-struct node {
+struct Node {
     int x, y, key, next;
 } road[N * 2];
 
@@ -26,8 +26,9 @@ void dfs(int x, int fa, int value) {
     k[x] = value;
     for (int i = start[x]; i; i = road[i].next) {
         int to = road[i].y;
-        if (to == fa)
+        if (to == fa) {
             continue;
+        }
         dfs(to, x, value ^ road[i].key);
     }
     return;
@@ -38,8 +39,9 @@ void work() {
     scanf("%d", &n);
     int Max = 0;
     tot = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         start[i] = 0;
+    }
     for (int i = 1; i < n; i++) {
         int p, q, t;
         scanf("%d%d%d", &p, &q, &t);
@@ -58,8 +60,9 @@ void work() {
         for (int j = 1; j <= n; j++) {
             ans += 1LL * num[p ^ k[j]];
         }
-        if (p == 0)
+        if (p == 0) {
             ans += 1LL * n;
+        }
         ans /= 2;
         cout << ans << endl;
     }
@@ -68,7 +71,8 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         work();
+    }
     return 0;
 }

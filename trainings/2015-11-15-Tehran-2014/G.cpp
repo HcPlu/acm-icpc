@@ -33,8 +33,9 @@ void dfs(int x) {
     }
     for (int i = start[x]; i; i = road[i].next) {
         int to = road[i].y;
-        if (used[to])
+        if (used[to]) {
             continue;
+        }
         dfs(to);
     }
     return;
@@ -57,12 +58,14 @@ void work() {
         scanf("%d%d%d", &p, &q, &t);
         exist[p].push_back(make_pair(t, q));
     }
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         used[i] = false;
+    }
     int result = 0;
     for (int now = 1; now <= n; now++) {
-        if (used[now])
+        if (used[now]) {
             continue;
+        }
         seq.clear();
         dfs(now);
         if (seq.size() == 0) {
@@ -74,7 +77,8 @@ void work() {
         int sum = 0;
         for (int i = 0, j; i < seq.size(); i = j) {
             j = i;
-            for (; j < seq.size() && seq[j].first == seq[i].first; sum += seq[j].second, j++);
+            for (; j < seq.size() && seq[j].first == seq[i].first; sum += seq[j].second, j++) {
+            }
             if ((j) < seq.size()) {
                 ans = min(ans, max(seq[j].first + 1, sum));
             } else {

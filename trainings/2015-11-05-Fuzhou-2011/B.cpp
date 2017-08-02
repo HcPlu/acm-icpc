@@ -72,9 +72,11 @@ void solve() {
     for (int i = 1; i <= n; i++) {
         int date = quest[i].first;
         if (head < (int)stack.size()) {
-            for (; head < (int)stack.size() && date - stack[head] > limit; head++);
+            for (; head < (int)stack.size() && date - stack[head] > limit; head++) {
+            }
         }
-        for (; last + limit < date; last++);
+        for (; last + limit < date; last++) {
+        }
         for (; last <= date; last++) {
             while (stack.size() - head > 0 && 1LL * a[last] + 1LL * (date - last) * cost <
                                               1LL * a[stack.back()] + 1LL * (date - stack.back()) * cost) {
@@ -89,6 +91,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d", &n, &m) && (n || m); solve());
+    for (; scanf("%d%d", &n, &m) && (n || m); solve()) {
+    }
     return 0;
 }

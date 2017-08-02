@@ -123,5 +123,6 @@ void solve(void) {
 int main(void) {
     ios::sync_with_stdio(false);
     int tests;
-    for (cin >> tests; tests--; solve());
+    for (cin >> tests; tests--; solve()) {
+    }
 }

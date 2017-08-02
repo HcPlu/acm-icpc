@@ -2,19 +2,23 @@
 #include <vector>
 
 using namespace std;
+
 long long ones[70];
 
 void dfs(long long number, vector<long long> &answer, long long base, long long pos) {
-    if (number <= 0)
+    if (number <= 0) {
         return;
+    }
     long long digit = number % 2;
-    if (digit >= 1)
+    if (digit >= 1) {
         answer[pos] += base;
+    }
     long long tmp = pos;
     for (long long rest = number / 2; rest; rest /= 2) {
         tmp++;
-        if (rest % 2)
+        if (rest % 2) {
             answer[tmp] += (digit + 1) * base;
+        }
     }
 
     answer[pos] += (number / 2) * base;
@@ -30,14 +34,17 @@ void solve() {
     vector<long long> answer2(70, 0);
     dfs(a, answer1, 1, 0);
     dfs(b, answer2, 1, 0);
-    for (long long i = 0; i <= 62; i++)
+    for (long long i = 0; i <= 62; i++) {
         ones[i] = answer2[i] - answer1[i];
+    }
     long long ornum = 0, andnum = 0;
     for (long long i = 0; i <= 62; i++) {
-        if (ones[i] > 0)
+        if (ones[i] > 0) {
             ornum += (1LL << i);
-        if (ones[i] == sum)
+        }
+        if (ones[i] == sum) {
             andnum += (1LL << i);
+        }
     }
     printf("%lld %lld\n", ornum, andnum);
 }

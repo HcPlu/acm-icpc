@@ -37,9 +37,10 @@ int main() {
         times++;
         ans += dfs(i);
     }
-    if (ans < m)
+    if (ans < m) {
         puts("Alice");
-    else
+    } else {
         puts("Bob");
+    }
     return 0;
 }

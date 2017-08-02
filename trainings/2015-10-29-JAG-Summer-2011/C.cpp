@@ -4,6 +4,7 @@
 using namespace std;
 
 const int N = 2555;
+
 vector<int> edge[N];
 vector<int> arrival[N];
 int dist[N], from[N], id[N][N];
@@ -24,8 +25,9 @@ int go(int source, int target, int base) {
     queue.push_back(source);
     for (int head = 0; head < (int)queue.size(); head++) {
         int now = queue[head];
-        if (now == target)
+        if (now == target) {
             break;
+        }
         for (int i = 0; i < (int)edge[now].size(); i++) {
             int y = edge[now][i];
             if (dist[y] == -1) {
@@ -47,8 +49,9 @@ int main() {
     for (int i = 1; i <= n; i++) {
         scanf("%s", graph[i] + 1);
         for (int j = 1; j <= m; j++) {
-            if (graph[i][j] == '.')
+            if (graph[i][j] == '.') {
                 id[i][j] = ++total;
+            }
         }
     }
 

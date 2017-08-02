@@ -11,7 +11,7 @@ char type[1000];
 
 int seq[400005];
 
-struct node {
+struct Node {
     int l, r;
     pair<int, int> Min;
 } tree[2002000];

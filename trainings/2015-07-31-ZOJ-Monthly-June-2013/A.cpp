@@ -25,5 +25,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%lf%lf", &a[0].first, &a[0].second); solve());
+    for (; ~scanf("%lf%lf", &a[0].first, &a[0].second); solve()) {
+    }
 }

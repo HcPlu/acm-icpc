@@ -44,8 +44,9 @@ void build(int root, int x, int y) {
     tree[root].l = x;
     tree[root].r = y;
     tree[root].Max = tree[root].tag = 0;
-    if (x == y)
+    if (x == y) {
         return;
+    }
     int mid = x + y >> 1;
     build(root << 1, x, mid);
     build(root << 1 | 1, mid + 1, y);
@@ -139,7 +140,8 @@ void work() {
     sort(event + 1, event + 1 + num);
     long long ans = 0;
     for (int i = 1, j; i <= num; i = j) {
-        for (j = i; event[j].x == event[i].x && j <= num; j++);
+        for (j = i; event[j].x == event[i].x && j <= num; j++) {
+        }
         for (int k = i; k < j; k++) {
             add(1, event[k].l, event[k].r, event[k].value);
         }

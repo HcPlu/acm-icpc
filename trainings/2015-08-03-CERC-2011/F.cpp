@@ -238,5 +238,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d%d%d", &n, &m, &c, &t) && (n || m || c || t); solve());
+    for (; ~scanf("%d%d%d%d", &n, &m, &c, &t) && (n || m || c || t); solve()) {
+    }
 }

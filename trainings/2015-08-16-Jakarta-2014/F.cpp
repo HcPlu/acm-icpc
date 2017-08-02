@@ -1,8 +1,10 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 111111;
 const int M = 1000000 + 11;
+
 pair<pair<int, int>, int> event[N * 2];
 int a[N], b[N], c[N], T[M], n;
 int occur[M];
@@ -12,13 +14,15 @@ int lowbit(int x) {
 }
 
 void add(int x) {
-    for (int i = x; i < M; i += lowbit(i))
+    for (int i = x; i < M; i += lowbit(i)) {
         T[i]++;
+    }
 }
 
 void dec(int x) {
-    for (int i = x; i < M; i += lowbit(i))
+    for (int i = x; i < M; i += lowbit(i)) {
         T[i]--;
+    }
 }
 
 int getsum(int x) {
@@ -36,8 +40,9 @@ int query(int l, int r) {
 void solve() {
     scanf("%d", &n);
     int cnt = 0;
-    for (int i = 0; i < M; i++)
+    for (int i = 0; i < M; i++) {
         T[i] = 0;
+    }
 
     memset(occur, 0, sizeof occur);
 

@@ -12,11 +12,13 @@ int main() {
         for (int i = 1; i <= len2; i++) {
             char ch;
             int pos = i % len1;
-            if (!pos)
+            if (!pos) {
                 pos = len1;
+            }
             ch = code[i] - 'A' + 1 + key[pos];
-            if (ch > 'Z')
+            if (ch > 'Z') {
                 ch -= 26;
+            }
             putchar(ch);
         }
         puts("");

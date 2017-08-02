@@ -13,9 +13,11 @@ long long times(long long x, long long y) {
 
 long long pow(long long x, long long y) {
     long long ans = 1;
-    for (; y; y >>= 1, x = times(x, x))
-        if (y & 1)
+    for (; y; y >>= 1, x = times(x, x)) {
+        if (y & 1) {
             ans = times(ans, x);
+        }
+    }
     return ans;
 }
 
@@ -25,11 +27,13 @@ long long fact[N], inverse[N], f[N];
 
 int main() {
     fact[0] = 1;
-    for (int i = 1; i < N; i++)
+    for (int i = 1; i < N; i++) {
         fact[i] = times(fact[i - 1], i);
+    }
     inverse[0] = 1;
-    for (int i = 1; i < N; i++)
+    for (int i = 1; i < N; i++) {
         inverse[i] = pow(fact[i], MOD - 2);
+    }
 
     f[0] = f[1] = 1;
     long long a = 0, b = 0, c = 0;

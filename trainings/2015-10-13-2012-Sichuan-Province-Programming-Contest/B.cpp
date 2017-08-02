@@ -17,8 +17,9 @@ int num[2];
 void work() {
     int n;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
     double andd = 0, orr = 0, xorr = 0;
     for (int pos = 0; pos <= 30; pos++) {
         for (int i = 1; i <= n; i++) {
@@ -28,10 +29,12 @@ void work() {
         long long ans_and = 0, ans_or = 0, ans_xor = 0;
         for (int i = 1, j; i <= n; i = j) {
             if (k[i] == 0) {
-                for (j = i; j <= n && k[j] == 0; j++);
+                for (j = i; j <= n && k[j] == 0; j++) {
+                }
                 ans_or += get_num(j - i);
             } else {
-                for (j = i; j <= n && k[j] == 1; j++);
+                for (j = i; j <= n && k[j] == 1; j++) {
+                }
                 ans_and += get_num(j - i);
             }
         }

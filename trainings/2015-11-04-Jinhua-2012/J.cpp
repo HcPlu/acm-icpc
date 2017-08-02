@@ -47,6 +47,7 @@ void work() {
 }
 
 int main() {
-    while (scanf("%d%d%d", &n, &m, &k) == 3 && (n + m + k != 0))
+    while (scanf("%d%d%d", &n, &m, &k) == 3 && (n + m + k != 0)) {
         work();
+    }
 }

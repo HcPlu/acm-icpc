@@ -11,7 +11,7 @@ const int N = 100005;
 int start[N], tot = 0, n, Max[N], father[N], deep[N], now, cost[N];
 pair<int, int> w[N];
 
-struct node {
+struct Node {
     int x, y, next;
 } road[N * 2];
 

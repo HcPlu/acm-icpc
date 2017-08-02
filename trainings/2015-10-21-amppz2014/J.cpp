@@ -39,10 +39,11 @@ int get_lca(int x, int y) {
     if (deep[x] < deep[y]) {
         swap(x, y);
     }
-    for (int i = 20; i >= 0; i--)
+    for (int i = 20; i >= 0; i--) {
         if (deep[father[x][i]] >= deep[y]) {
             x = father[x][i];
         }
+    }
     if (x == y) {
         return x;
     }
@@ -81,9 +82,11 @@ void work() {
     }
     deep[1] = 1;
     dfs(1, 0);
-    for (int i = 1; i <= 20; i++)
-        for (int j = 1; j <= n; j++)
+    for (int i = 1; i <= 20; i++) {
+        for (int j = 1; j <= n; j++) {
             father[j][i] = father[father[j][i - 1]][i - 1];
+        }
+    }
     int now = 1;
     for (int i = 1; i <= m; i++) {
         int a = t[i].first.first, b = t[i].first.second, d = t[i].second;
@@ -128,6 +131,7 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         work();
+    }
 }

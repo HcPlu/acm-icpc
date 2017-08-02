@@ -121,31 +121,39 @@ void get() {
 
 int main() {
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]);
+    }
     get();
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         L[i] = temp[i];
+    }
     reverse(a + 1, a + 1 + n);
     get();
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         R[i] = temp[i];
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         zero[i] = make_pair(L[i], n - R[n - i + 1] + 1);
+    }
 
     reverse(a + 1, a + 1 + n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         a[i] *= -1;
+    }
     get();
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         L[i] = temp[i];
+    }
     reverse(a + 1, a + 1 + n);
     get();
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         R[i] = temp[i];
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         one[i] = make_pair(L[i], n - R[n - i + 1] + 1);
+    }
 
     int cnt = 0;
 
@@ -176,8 +184,9 @@ int main() {
         }
     }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         seg[i].type ^= 1;
+    }
     sort(seg + 1, seg + 1 + cnt, cmpx);
 
     build(1, 1, n);

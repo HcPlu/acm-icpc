@@ -9,7 +9,7 @@ const int N = 10005;
 
 vector<int> seq;
 
-struct node {
+struct Node {
     int x, y, next;
     bool flag;
 } road[M * 2];

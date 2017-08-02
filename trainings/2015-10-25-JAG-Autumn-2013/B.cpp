@@ -36,16 +36,20 @@ void work() {
     scanf("%s", c[2] + 1);
     scanf("%s", c[3] + 1);
     n = strlen(c[1] + 1);
-    for (int i = 1; i <= 3; i++)
+    for (int i = 1; i <= 3; i++) {
         reverse(c[i] + 1, c[i] + 1 + n);
-    for (int i = 0; i <= n; i++)
-        for (int j = 0; j <= 1; j++)
-            f[i][j] = 0;
-    f[0][0] = 1;
-    for (int i = 0; i < n; i++)
+    }
+    for (int i = 0; i <= n; i++) {
         for (int j = 0; j <= 1; j++) {
-            for (int k = 1; k <= 3; k++)
+            f[i][j] = 0;
+        }
+    }
+    f[0][0] = 1;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= 1; j++) {
+            for (int k = 1; k <= 3; k++) {
                 limit[k] = get(c[k][i + 1], i + 1);
+            }
             for (int ia = limit[1].first; ia <= limit[1].second; ia++) {
                 for (int ib = limit[2].first; ib <= limit[2].second; ib++) {
                     for (int ic = limit[3].first; ic <= limit[3].second; ic++) {
@@ -57,13 +61,15 @@ void work() {
                 }
             }
         }
+    }
     printf("%d\n", f[n][0]);
 }
 
 int main() {
     while (scanf("%s", c[1] + 1) == 1) {
-        if (strlen(c[1] + 1) == 1 && c[1][1] == '0')
+        if (strlen(c[1] + 1) == 1 && c[1][1] == '0') {
             break;
+        }
         work();
     }
     return 0;

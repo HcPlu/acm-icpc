@@ -16,10 +16,11 @@ int hp, atk, p, n;
 pair<int, int> g[N][10];
 
 void update(pair<int, int> &p1, const pair<int, int> &p2) {
-    if (p1.first < p2.first)
+    if (p1.first < p2.first) {
         p1 = p2;
-    else if (p1.first == p2.first && p1.second > p2.second)
+    } else if (p1.first == p2.first && p1.second > p2.second) {
         p1 = p2;
+    }
 }
 
 int dfs(int a, int b, int c) {
@@ -47,20 +48,23 @@ int dfs(int a, int b, int c) {
 void solve() {
     for (int i = 1; i <= n; i++) {
         scanf("%d", &monster[i].id);
-        if (monster[i].id == 1)
+        if (monster[i].id == 1) {
             scanf("%d%d", &monster[i].hp, &monster[i].atk);
+        }
     }
     scanf("%d%d%d", &hp, &atk, &p);
 
     memset(f, -1, sizeof(f));
 
-    for (int i = 0; i <= n; i++)
-        for (int j = 0; j <= 5; j++)
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= 5; j++) {
             g[i][j] = make_pair(-1, INF);
+        }
+    }
 
     g[0][0] = make_pair(0, 0);
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         for (int j = 0; j <= 5; j++) {
             if (j == 0 && monster[i].id) {
                 int bottle = dfs(hp, monster[i].hp, monster[i].atk);
@@ -69,15 +73,17 @@ void solve() {
                 }
             } // beat boss
 
-            if (monster[i].id)
+            if (monster[i].id) {
                 update(g[i][j], g[i - 1][j]); //skip boss
-            else {
-                if (j > 0)
-                    update(g[i][j], g[i - 1][j - 1]); // beat xiaobing
+            } else {
+                if (j > 0) {
+                    update(g[i][j], g[i - 1][j - 1]);
+                } // beat xiaobing
                 if (j == 5)
                     update(g[i][j], g[i - 1][j]); // beat xiaobing
             }
         }
+    }
 
     pair<int, int> ans;
     ans = make_pair(-1, INF);

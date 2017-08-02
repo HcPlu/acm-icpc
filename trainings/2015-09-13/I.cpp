@@ -37,10 +37,8 @@ void dp(int f[M], int n, int t[N], int u[N], int v[N]) {
     for (int i(1); i <= LIM; i++) {
         f[i] = infi;
     }
-    //printf();
     f[0] = 0;
     for (int i(1); i <= n; i++) {
-        //printf("%d %d %d\n", t[i], u[i], v[i]);
         for (int base(0); base < t[i]; base++) {
             f[base] = f[base];
             int ed(0);
@@ -57,7 +55,6 @@ void dp(int f[M], int n, int t[N], int u[N], int v[N]) {
                     ed--;
                 }
                 assert(vec[op].first < j);
-                //if(j * t[i] + base <= 40) printf("!! %d %d %d\n", base + j * t[i], vec[op].first, vec[op].second + j * u[i]);
                 vec[ed++] = make_pair(j, f[base + j * t[i]] - j * u[i]);
                 f[base + j * t[i]] = vec[op].second + j * u[i];
                 if (f[base + j * t[i]] < 0) {
@@ -73,10 +70,8 @@ void dp1(int f[M], int n, int t[N], int u[N], int v[N]) {
     for (int i(1); i <= LIM; i++) {
         f[i] = -infi;
     }
-    //printf();
     f[0] = 0;
     for (int i(1); i <= n; i++) {
-        //printf("%d %d %d\n", t[i], u[i], v[i]);
         for (int base(0); base < t[i]; base++) {
             f[base] = f[base];
             int ed(0);
@@ -89,7 +84,6 @@ void dp1(int f[M], int n, int t[N], int u[N], int v[N]) {
                 while (op < ed && f[base + j * t[i]] - j * u[i] >= vec[ed - 1].second) {
                     ed--;
                 }
-                //if(j * t[i] + base <= 40) printf("!! %d %d %d\n", base + j * t[i], vec[op].first, vec[op].second + j * u[i]);
                 vec[ed++] = make_pair(j, f[base + j * t[i]] - j * u[i]);
                 f[base + j * t[i]] = vec[op].second + j * u[i];
             }
@@ -105,42 +99,29 @@ int main() {
         n = getInt();
         m = getInt();
         p = getInt();
-        //n = 200;
-        //m = 200;
-        //printf("%d %d %d\n", n, m, p);
         for (int i(1); i <= n; i++) {
             t[i] = getInt();
             u[i] = getInt();
             v[i] = getInt();
-            //t[i] = rand() % 99 + 1;
-            //u[i] = rand() % 99 + 1;
-            //v[i] = rand() % 99 + 1;
 
         }
         for (int i(1); i <= m; i++) {
             x[i] = getInt();
             y[i] = getInt();
             z[i] = getInt();
-            //x[i] = rand() % 99 + 1;
-            //y[i] = rand() % 99 + 1;
-            //z[i] = rand() % 99 + 1;
-            //printf("%d %d %d\n", x[i], y[i], z[i]);
         }
         LIM = p + 100;
         dp(f, n, t, u, v);
         int minSize(infi);
         for (int i(p); i <= LIM; i++) {
             minSize = min(minSize, f[i]);
-            //if(i <= 40)printf("f[%d][%d] = %d\n", n, i, f[n][i]);
         }
-        //printf("minSize = %d\n", minSize);
         LIM = min(50000, minSize >= infi ? infi : minSize * 100);
         if (minSize == infi) {
             printf("TAT\n");
             continue;
         }
         dp1(g, m, y, x, z);
-        //printf("minSize = %d\n", minSize);
         int minCost(infi);
         for (int i(0); i <= LIM; i++) {
             if (g[i] >= minSize) {

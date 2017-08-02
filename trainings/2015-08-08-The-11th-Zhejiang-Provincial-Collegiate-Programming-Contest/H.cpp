@@ -114,10 +114,13 @@ void solve(void) {
         if (pos.first == current.first) {
             double left = pos.second - best.first;
             double right = pos.second;
-            for (; left > right; right += PI * 2);
+            for (; left > right; right += PI * 2) {
+            }
             double number = current.second;
-            for (; number > right - eps; number -= PI * 2);
-            for (; number < left; number += PI * 2);
+            for (; number > right - eps; number -= PI * 2) {
+            }
+            for (; number < left; number += PI * 2) {
+            }
             if (left - eps < number && number < right + eps && counter > 1) {
                 if (pos.second < current.second) {
                     pos.second += PI * 2;
@@ -138,5 +141,6 @@ void solve(void) {
 
 int main(void) {
     int tests;
-    for (scanf("%d", &tests); tests--; solve());
+    for (scanf("%d", &tests); tests--; solve()) {
+    }
 }

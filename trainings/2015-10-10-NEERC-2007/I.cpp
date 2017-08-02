@@ -101,5 +101,6 @@ void solve() {
 }
 
 int main(void) {
-    for (; gets(buffer); solve());
+    for (; gets(buffer); solve()) {
+    }
 }

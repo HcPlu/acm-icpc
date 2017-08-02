@@ -16,8 +16,9 @@ double P[N][N];
 int main() {
     double l;
     scanf("%d%d%lf", &n, &m, &l);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%lf%lf%lf", &p[i], &t[i], &v[i]);
+    }
     for (int i = 1; i <= n; i++) {
         p[i] /= 100.;
     }
@@ -25,8 +26,9 @@ int main() {
     for (int i = 2; i <= m + 1; i++) {
         C[i][1] = 1.;
         C[i][i] = 1.;
-        for (int j = 2; j < i; j++)
+        for (int j = 2; j < i; j++) {
             C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
+        }
     }
 
     for (int i = 1; i <= n; i++) {
@@ -41,10 +43,11 @@ int main() {
         }
     }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             f[i][j] = f[i][j] * C[m + 1][j + 1];
         }
+    }
 
     for (int i = 1; i <= n; i++) {
         for (int j = m; j >= 0; j--) {
@@ -60,10 +63,12 @@ int main() {
                 result = 0.;
             } else {
                 for (int k = 1; k <= n; k++) {
-                    if (i == k)
+                    if (i == k) {
                         continue;
-                    if (fabs(v[k]) < eps)
+                    }
+                    if (fabs(v[k]) < eps) {
                         continue;
+                    }
                     double need = l / v[i] - l / v[k];
                     need += t[i] * j;
                     int times;

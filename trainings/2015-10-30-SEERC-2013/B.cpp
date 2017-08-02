@@ -8,7 +8,7 @@ const int N = 500005;
 int used[N], n, k, A, B, start[N], tot = 0, f[N];
 int U_cnt = 0, exist[N];
 
-struct node {
+struct Node {
     int x, y, next;
 } road[N * 2];
 
@@ -23,8 +23,9 @@ void build(int x, int y) {
 int bfs1() {
     static int team[N], dis[N];
     int head = 0, tail = 1;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         used[i] = false;
+    }
     used[1] = true;
     dis[1] = 0;
     team[1] = 1;
@@ -32,8 +33,9 @@ int bfs1() {
         int u = team[++head];
         for (int i = start[u]; i; i = road[i].next) {
             int to = road[i].y;
-            if (used[to])
+            if (used[to]) {
                 continue;
+            }
             dis[to] = dis[u] + 1;
             if (to == n) {
                 return dis[to];
@@ -62,10 +64,12 @@ void delet(int x) {
 int bfs2() {
     static int team[N], dis[N];
     int head = 0, tail = 1;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         used[i] = false;
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         f[i] = i;
+    }
     dis[1] = 0;
     used[1] = true;
     delet(1);
@@ -78,10 +82,12 @@ int bfs2() {
             exist[road[i].y] = U_cnt;
         }
         for (int now = n; now > 0; now = find(now) - 1) {
-            if (used[now])
+            if (used[now]) {
                 continue;
-            if (exist[now] == U_cnt)
+            }
+            if (exist[now] == U_cnt) {
                 continue;
+            }
             if (now == n) {
                 return dis[u] + 1;
             }
@@ -96,8 +102,9 @@ int bfs2() {
 
 void work() {
     tot = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         start[i] = 0;
+    }
     bool flag = false;
     for (int i = 1; i <= k; i++) {
         int x, y;

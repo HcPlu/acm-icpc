@@ -1,6 +1,4 @@
 #include <cstdio>
-#include <cstdlib>
-#include <cstring>
 #include <cmath>
 #include <iostream>
 #include <queue>
@@ -12,10 +10,12 @@ char s[111];
 priority_queue<pair<int, int>> sell, buy;
 
 void work() {
-    while (!sell.empty())
+    while (!sell.empty()) {
         sell.pop();
-    while (!buy.empty())
+    }
+    while (!buy.empty()) {
         buy.pop();
+    }
     int n;
     scanf("%d", &n);
     int last = -1;
@@ -23,18 +23,20 @@ void work() {
         int cost, num;
         scanf("%s", s + 1);
         int type = 0;
-        if (s[1] == 'b')
+        if (s[1] == 'b') {
             type = 1;
-        else
+        } else {
             type = 2;
+        }
         scanf("%d", &num);
         scanf("%s", s + 1);
         scanf("%s", s + 1);
         scanf("%d", &cost);
-        if (type == 1)
+        if (type == 1) {
             buy.push(make_pair(cost, num));
-        else
+        } else {
             sell.push(make_pair(-cost, num));
+        }
         while (!buy.empty() && !sell.empty()) {
             pair<int, int> tmpb, tmps;
             tmpb = buy.top();
@@ -50,37 +52,44 @@ void work() {
             int CC = min(tmpb.second, tmps.second);
             tmpb.second -= CC, tmps.second -= CC;
             last = tmps.first;
-            if (tmpb.second)
+            if (tmpb.second) {
                 buy.push(tmpb);
-            if (tmps.second)
+            }
+            if (tmps.second) {
                 tmps.first *= -1, sell.push(tmps);
+            }
         }
         int ans1, ans2;
 
-        if (sell.empty())
+        if (sell.empty()) {
             ans1 = -1;
-        else
+        } else {
             ans1 = -sell.top().first;
+        }
 
-        if (buy.empty())
+        if (buy.empty()) {
             ans2 = -1;
-        else
+        } else {
             ans2 = buy.top().first;
+        }
 
-        if (ans1 == -1)
+        if (ans1 == -1) {
             printf("- ");
-        else
+        } else {
             printf("%d ", ans1);
+        }
 
-        if (ans2 == -1)
+        if (ans2 == -1) {
             printf("- ");
-        else
+        } else {
             printf("%d ", ans2);
+        }
 
-        if (last == -1)
+        if (last == -1) {
             printf("-");
-        else
+        } else {
             printf("%d", last);
+        }
         puts("");
     }
 }
@@ -88,7 +97,8 @@ void work() {
 int main() {
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         work();
+    }
     return 0;
 }

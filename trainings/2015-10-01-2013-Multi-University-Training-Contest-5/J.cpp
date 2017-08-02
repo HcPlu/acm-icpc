@@ -25,5 +25,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d", &q); solve());
+    for (; ~scanf("%d", &q); solve()) {
+    }
 }

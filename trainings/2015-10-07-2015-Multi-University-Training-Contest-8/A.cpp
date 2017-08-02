@@ -22,10 +22,12 @@ void solve() {
     cost += 1LL * limit * buy[0];
     for (int i = 1; i <= n; i++) {
         int dist = pos[i] - pos[i - 1];
-        for (; dist - q[l].second > 0 && l <= r; dist -= q[l].second, l++);
+        for (; dist - q[l].second > 0 && l <= r; dist -= q[l].second, l++) {
+        }
         q[l].second -= dist;
-        if (q[l].second == 0)
+        if (q[l].second == 0) {
             l++;
+        }
         int num = 0;
         for (; q[l].first < sell[i] && l <= r; l++) {
             num += q[l].second;

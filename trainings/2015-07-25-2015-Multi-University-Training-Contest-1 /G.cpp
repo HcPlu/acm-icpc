@@ -11,11 +11,11 @@ struct Node {
     int to, nxt, w;
 } nod[M * 2];
 
-struct Node2 {
+struct {
     int to, nxt, c;
 } nod2[M * 2];
 
-struct Edge {
+struct {
     int u, v, w;
 } e[M];
 

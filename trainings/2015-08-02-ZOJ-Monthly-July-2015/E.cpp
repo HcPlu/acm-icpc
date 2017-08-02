@@ -5,7 +5,6 @@
 using namespace std;
 
 namespace MCF {
-
     const int N = 1111, M = 222222;
 
     struct EdgeList {
@@ -83,7 +82,6 @@ namespace MCF {
     void clear() {
         e.clear(n);
     }
-
 }
 
 int n, m;
@@ -127,5 +125,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &n, &m); solve());
+    for (; ~scanf("%d%d", &n, &m); solve()) {
+    }
 }

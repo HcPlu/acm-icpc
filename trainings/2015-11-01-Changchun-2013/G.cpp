@@ -10,6 +10,7 @@ const int N = 808;
 
 int a[N][N], n, m;
 int tot = 0;
+
 struct Segtree {
     int l, r, lson, rson;
     int id;
@@ -132,16 +133,20 @@ void update1(int root, int x, int y, int key) {
 void work() {
     scanf("%d", &n);
     m = n;
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             scanf("%d", &a[i][j]);
+        }
+    }
     tot = 1;
     build1(1, 1, n);
     int Q;
     scanf("%d", &Q);
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             update1(1, i, j, a[i][j]);
+        }
+    }
 
     for (int i = 1; i <= Q; i++) {
         int x, y, l;

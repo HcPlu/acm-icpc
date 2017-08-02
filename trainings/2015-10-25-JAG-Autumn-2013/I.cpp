@@ -147,6 +147,7 @@ inline void solve() {
 }
 
 int main() {
-    for (; ~scanf("%d%d", &n, &m) && n + m; solve());
+    for (; ~scanf("%d%d", &n, &m) && n + m; solve()) {
+    }
     return 0;
 }

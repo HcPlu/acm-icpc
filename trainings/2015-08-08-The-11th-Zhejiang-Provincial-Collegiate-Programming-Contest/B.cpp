@@ -8,29 +8,34 @@ long long f[MAXS][M];
 int score[N][N];
 
 long long gcd(long long x, long long y) {
-    if (y == 0)
+    if (y == 0) {
         return x;
-    else
+    } else {
         return gcd(y, x % y);
+    }
 }
 
 void solve() {
     int n, m;
     scanf("%d%d", &n, &m);
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= n; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
             scanf("%d", &score[i][j]);
+        }
+    }
 
     memset(f, 0, sizeof f);
     f[0][0] = 1;
     for (int state = 0; state < (1 << n); state++) {
         for (int now = 0; now <= m; now++) {
-            if (f[state][now] == 0)
+            if (f[state][now] == 0) {
                 continue;
+            }
             int cnt = 0;
             for (int i = 1; i <= n; i++) {
-                if (state >> i - 1 & 1)
+                if (state >> i - 1 & 1) {
                     ++cnt;
+                }
             }
             for (int i = 1; i <= n; i++) {
                 if (~state >> i - 1 & 1) {
@@ -42,8 +47,9 @@ void solve() {
     }
 
     long long up = 1;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         up *= i;
+    }
 
     long long down = f[(1 << n) - 1][m];
     if (down == 0) {
@@ -61,6 +67,7 @@ void solve() {
 int main() {
     int tests;
     scanf("%d", &tests);
-    for (; tests--; solve());
+    for (; tests--; solve()) {
+    }
     return 0;
 }

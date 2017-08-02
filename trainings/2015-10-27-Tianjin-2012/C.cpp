@@ -82,5 +82,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%s%s", texta + 1, textb + 1); solve());
+    for (; ~scanf("%s%s", texta + 1, textb + 1); solve()) {
+    }
 }

@@ -30,10 +30,12 @@ __inline void solve() {
         int k = min(i, m);
         for (int j = (i & 1) ? 1 : 0; j <= k; j += 2) {
             f[i][j] = 0;
-            if (j > 0)
+            if (j > 0) {
                 update(f[i][j], 1LL * f[i - 1][j - 1] * (m - j + 1) % mod);
-            if (j < m)
+            }
+            if (j < m) {
                 update(f[i][j], 1LL * f[i - 1][j + 1] * (j + 1) % mod);
+            }
         }
     }
 

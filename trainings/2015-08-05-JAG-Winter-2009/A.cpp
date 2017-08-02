@@ -35,7 +35,6 @@ double det() {
     for (int i = 0; i < 3; ++i) {
         result *= element[i][i];
     }
-    //	printf("%.10f\n", result);
     return result;
 }
 

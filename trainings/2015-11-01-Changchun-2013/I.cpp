@@ -69,5 +69,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%d%d", &m, &l); solve());
+    for (; ~scanf("%d%d", &m, &l); solve()) {
+    }
 }

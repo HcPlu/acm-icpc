@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <cstdlib>
 #include <iostream>
 #include <vector>
 
@@ -38,9 +37,11 @@ bool dfs(int x) {
 void work() {
     cntc = cntr = 0;
     scanf("%d%d", &n, &m);
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
             map[i][j] = 0;
+        }
+    }
     int Q1, Q2;
     scanf("%d", &Q1);
     for (int i = 1; i <= Q1; i++) {
@@ -57,28 +58,37 @@ void work() {
     cntc = cntr = 0;
     for (int i = 1; i <= n; i++) {
         cntc++;
-        for (int j = 1; j <= m; j++)
-            if (map[i][j] == 1)
+        for (int j = 1; j <= m; j++) {
+            if (map[i][j] == 1) {
                 cntc++;
-            else
+            } else {
                 c[i][j] = cntc;
+            }
+        }
     }
     for (int i = 1; i <= m; i++) {
         cntr++;
-        for (int j = 1; j <= n; j++)
-            if (map[j][i] == 1)
+        for (int j = 1; j <= n; j++) {
+            if (map[j][i] == 1) {
                 cntr++;
-            else
+            } else {
                 r[j][i] = cntr;
+            }
+        }
     }
-    for (int i = 1; i <= cntc; i++)
+    for (int i = 1; i <= cntc; i++) {
         adj[i].clear();
-    for (int i = 1; i <= max(cntc, cntr); i++)
+    }
+    for (int i = 1; i <= max(cntc, cntr); i++) {
         matchy[i] = matchx[i] = 0;
-    for (int i = 1; i <= n; i++)
-        for (int j = 1; j <= m; j++)
-            if (map[i][j] == 2)
+    }
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (map[i][j] == 2) {
                 add(c[i][j], r[i][j]);
+            }
+        }
+    }
     int ans = 0;
     for (int i = 1; i <= cntc; i++) {
         times++;
@@ -91,8 +101,9 @@ void work() {
 int main() {
     int test = 0;
     scanf("%d", &test);
-    for (int i = 1; i <= test; i++)
+    for (int i = 1; i <= test; i++) {
         work();
+    }
     return 0;
 }
 

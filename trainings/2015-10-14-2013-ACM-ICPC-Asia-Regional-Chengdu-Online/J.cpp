@@ -14,17 +14,21 @@ typedef long long LL;
 
 void work() {
     scanf("%d%d", &n, &m);
-    for (int i = 0; i <= 20; i++)
-        for (int j = 1; j <= n + 1; j++)
+    for (int i = 0; i <= 20; i++) {
+        for (int j = 1; j <= n + 1; j++) {
             Or[j][i] = 1 << 30;
-    for (int i = 1; i <= n; i++)
+        }
+    }
+    for (int i = 1; i <= n; i++) {
         scanf("%d", &a[i]), Or[i][0] = a[i];
+    }
     a[n + 1] = m + 1;
     n++;
-    for (int i = 1; i <= 20; i++)
+    for (int i = 1; i <= 20; i++) {
         for (int j = 1; (j + (1 << i) - 1) <= n; j++) {
             Or[j][i] = Or[j][i - 1] | Or[j + (1 << i - 1)][i - 1];
         }
+    }
     long long ans = 0;
     for (int i = 1; i < n; i++) {
         int now = i;
@@ -35,7 +39,6 @@ void work() {
                 now = now + (1 << j);
             }
         }
-        //printf("%d %d\n", now, i);
         ans += 1LL * (now - i);
     }
     cout << ans << endl;

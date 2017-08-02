@@ -93,7 +93,8 @@ int main() {
         for (int z = 0; z < n; ++z) {
             for (int i = 0; i <= (int)str[z].length(); ++i) {
                 int j = i - 1, k = 0;
-                for (; j >= 0 && k < (int)str[y].length() && str[z][j] == str[y][k]; --j, ++k);
+                for (; j >= 0 && k < (int)str[y].length() && str[z][j] == str[y][k]; --j, ++k) {
+                }
                 if (j == -1) {
                     adj[pre[z][x][i]].push_back(make_pair(suf[z][y][(int)str[y].length() - k], str[y].length()));
                 }
@@ -106,7 +107,8 @@ int main() {
         for (int z = 0; z < n; ++z) {
             for (int i = 0; i <= (int)str[z].length(); ++i) {
                 int j = (int)str[x].length() - 1, k = (int)str[z].length() - i;
-                for (; j >= 0 && k < (int)str[z].length() && str[x][j] == str[z][k]; --j, ++k);
+                for (; j >= 0 && k < (int)str[z].length() && str[x][j] == str[z][k]; --j, ++k) {
+                }
                 if (j == -1) {
                     adj[suf[y][z][i]].push_back(make_pair(suf[x][z][(int)str[z].length() - k], str[x].length()));
                 }

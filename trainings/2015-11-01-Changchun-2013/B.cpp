@@ -57,5 +57,6 @@ void solve() {
 
 
 int main() {
-    for (; scanf("%d", &n) == 1; solve());
+    for (; scanf("%d", &n) == 1; solve()) {
+    }
 }

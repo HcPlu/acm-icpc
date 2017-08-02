@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 
-const int INF = 1e9;
+using namespace std;
+
 const int N = 1111;
 
-using namespace std;
+const int INF = 1e9;
 
 char s[N];
 
@@ -26,30 +27,34 @@ void solve() {
     for (int i = 1; i <= len; i++) {
         int tmp = sum;
         int fnd = 0;
-        for (int j = i + 1; j <= len; j++)
+        for (int j = i + 1; j <= len; j++) {
             if (s[j] != 'A') {
                 fnd = j;
                 break;
             }
+        }
         if (fnd) {
             tmp += (i - 1) * 2 + len - fnd + 1;
-        } else
+        } else {
             tmp += i - 1;
+        }
         ans = min(tmp, ans);
     }
 
     vector<int> pos;
     for (int i = 1; i <= len; i++) {
-        if (s[i] != 'A')
+        if (s[i] != 'A') {
             pos.push_back(i);
+        }
     }
 
-    if (pos.size() >= 2)
+    if (pos.size() >= 2) {
         for (int i = 0; i < (int)pos.size() - 1; i++) {
             int tmp = sum;
             tmp += (len - pos[i + 1] + 1) * 2 + pos[i] - 1;
             ans = min(tmp, ans);
         }
+    }
 
     printf("%d\n", ans);
 }

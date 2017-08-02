@@ -1,9 +1,9 @@
 #include <iostream>
 
 using namespace std;
-const int N = 111111;
-int a[N], n, m;
-int sum[N], N[N], minn[N];
+
+int n, m;
+int a[111111], sum[111111], N[111111], minn[111111];
 
 void solve() {
     for (int i = 1; i <= n; i++) {

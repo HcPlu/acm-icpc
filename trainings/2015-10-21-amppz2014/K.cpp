@@ -8,8 +8,6 @@ using namespace std;
 
 const int N = 222222;
 
-typedef long long LL;
-
 pair<pair<int, int>, int> a[N];
 
 int n, tot, start[N];
@@ -43,13 +41,15 @@ void prepare() {
     sort(a + 1, a + 1 + n);
     int next = -1;
     for (int i = 1, j; i <= n; i = j) {
-        for (j = i; a[j].first == a[i].first && j <= n; j++);
+        for (j = i; a[j].first == a[i].first && j <= n; j++) {
+        }
         for (int k = i; k + 1 < j; k++) {
             add(k, k + 1);
         }
         add(j - 1, i);
-        if (next != -1)
+        if (next != -1) {
             add(next, i);
+        }
         next = i;
     }
     add(1, next);
@@ -98,8 +98,9 @@ int main() {
         a[i].second = i;
     }
     prepare();
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         swap(a[i].first.first, a[i].first.second);
+    }
     prepare();
     long long t = solve(1, n);
     cout << t << endl;

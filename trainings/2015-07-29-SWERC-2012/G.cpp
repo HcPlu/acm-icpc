@@ -14,7 +14,8 @@ void solve(void) {
     getline(cin, buffer);
 
     int n = 0;
-    for (stringstream os(buffer); os >> element[n++];);
+    for (stringstream os(buffer); os >> element[n++];) {
+    }
     n--;
 
     if (n == d + 1) {
@@ -53,5 +54,6 @@ void solve(void) {
 
 int main(void) {
     ios::sync_with_stdio(false);
-    for (; cin >> d >> p; solve());
+    for (; cin >> d >> p; solve()) {
+    }
 }

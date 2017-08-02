@@ -84,6 +84,7 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d%d%d%d", &n, &m, &num, &s, &limit) && (n > 0 && m > 0); solve());
+    for (; scanf("%d%d%d%d%d", &n, &m, &num, &s, &limit) && (n > 0 && m > 0); solve()) {
+    }
     return 0;
 }

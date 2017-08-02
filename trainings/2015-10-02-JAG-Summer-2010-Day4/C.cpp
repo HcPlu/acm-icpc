@@ -3,7 +3,9 @@
 #include <vector>
 
 using namespace std;
+
 const int N = 111111;
+
 struct edge {
     int u, v, dist;
 };
@@ -53,8 +55,9 @@ int main() {
     sort(e.begin(), e.end(), cmp);
 
     int rest = n;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         fa[i] = i;
+    }
 
     for (int i = 0; i < m; i++) {
         int u = e[i].u, v = e[i].v;
@@ -63,8 +66,9 @@ int main() {
             rest--;
             sum -= sqrt(e[i].dist);
         }
-        if (rest == 1)
+        if (rest == 1) {
             break;
+        }
     }
 
     printf("%.5f\n", sum);

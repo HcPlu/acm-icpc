@@ -23,21 +23,24 @@ pair<int, int> operator -(pair<int, int> x, pair<int, int> y) {
 
 int del(int x, int y) {
     x -= y;
-    if (x < 0)
+    if (x < 0) {
         x += MOD;
+    }
     return x;
 }
 
 int get_ans(int x, int y) {
-    if (x < MOD && y < MOD)
+    if (x < MOD && y < MOD) {
         return comb[x][y];
+    }
     return comb[x % MOD][y % MOD] * get_ans(x / MOD, y / MOD) % MOD;
 }
 
 int C(int x, int y) {
     x += y;
-    if (x < 0 || y < 0)
+    if (x < 0 || y < 0) {
         return 0;
+    }
     return get_ans(x, y);
 }
 
@@ -50,9 +53,11 @@ void work() {
     for (int i = 1; i <= n; i++) {
         int x, y;
         scanf("%d %d", &x, &y);
-        for (int j = max(1, x - 1); j <= min(h, x + 1); j++)
-            for (int l = max(1, y - 1); l <= min(w, y + 1); l++)
+        for (int j = max(1, x - 1); j <= min(h, x + 1); j++) {
+            for (int l = max(1, y - 1); l <= min(w, y + 1); l++) {
                 a[++cnt] = make_pair(j, l);
+            }
+        }
     }
     n = cnt;
     sort(a + 1, a + 1 + n);
@@ -76,12 +81,14 @@ int main() {
     comb[0][0] = 1;
     for (int i = 1; i < MOD; i++) {
         comb[i][0] = 1;
-        for (int j = 1; j <= i; j++)
+        for (int j = 1; j <= i; j++) {
             comb[i][j] = (comb[i - 1][j - 1] + comb[i - 1][j]) % MOD;
+        }
     }
     int T;
     scanf("%d", &T);
-    for (int i = 1; i <= T; i++)
+    for (int i = 1; i <= T; i++) {
         printf("Case #%d: ", i), work();
+    }
     return 0;
 }

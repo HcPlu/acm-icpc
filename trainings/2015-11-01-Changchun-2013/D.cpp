@@ -1,16 +1,19 @@
 #include <iostream>
 #include <cmath>
 
+#define left ____left
+#define right ____right
+
 using namespace std;
+
 const long double eps = 1e-9;
-#define left LLEFT
-#define right RRIGHT
 
 int sign(long double x) {
     return x < -eps ? -1 : x > eps;
 }
 
 const int N = 222222;
+
 int n, L;
 pair<long double, long double> point[N];
 long double k[N], b[N];

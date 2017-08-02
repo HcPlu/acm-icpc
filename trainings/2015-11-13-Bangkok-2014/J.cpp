@@ -8,9 +8,11 @@ int num[17][16];
 int ans[N];
 
 void work() {
-    for (int i = 1; i <= 16; i++)
-        for (int j = 0; j < i; j++)
+    for (int i = 1; i <= 16; i++) {
+        for (int j = 0; j < i; j++) {
             num[i][j] = 0;
+        }
+    }
     int n, m;
     scanf("%d%d", &n, &m);
     for (int i = 1; i <= n; i++) {

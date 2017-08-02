@@ -84,5 +84,6 @@ void prepare() {
 int main(void) {
     prepare();
     int tests;
-    for (scanf("%d", &tests); tests--; solve());
+    for (scanf("%d", &tests); tests--; solve()) {
+    }
 }

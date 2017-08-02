@@ -78,5 +78,6 @@ void solve(void) {
 
 int main(void) {
     ios::sync_with_stdio(false);
-    for (; cin >> k && k; solve());
+    for (; cin >> k && k; solve()) {
+    }
 }

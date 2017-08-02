@@ -7,7 +7,6 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
 
 const int N = 100005;
@@ -37,8 +36,9 @@ void dfs(int x, int fa) {
     deep[x] = deep[fa] + 1;
     for (int i = start[x]; i; i = road[i].next) {
         int to = road[i].y;
-        if (to == fa)
+        if (to == fa) {
             continue;
+        }
         dfs(to, x);
     }
     R[x] = gxx;
@@ -82,8 +82,9 @@ int dis(int x, int y) {
 }
 
 bool inseg(pair<int, int> x, int y) {
-    if (y >= x.first && y <= x.second)
+    if (y >= x.first && y <= x.second) {
         return true;
+    }
     return false;
 }
 
@@ -123,27 +124,32 @@ void addlimit(int idx, int idy, int x, int y) {
 int get_ans(int id) {
     vector<pair<int, int> > lim;
     vector<pair<int, int> > g[4];
-    for (int i = 0; i <= 1; i++)
+    for (int i = 0; i <= 1; i++) {
         g[i].clear();
+    }
     lim.clear();
     for (int i = 0; i < limit[id].size(); i++) {
         if (limit[id][i].first == 0) {
             g[i].push_back(limit[id][i].second);
         } else {
-            if (limit[id][i].second.first > 1)
+            if (limit[id][i].second.first > 1) {
                 g[i].push_back(make_pair(1, limit[id][i].second.first - 1));
-            if (limit[id][i].second.second < n)
+            }
+            if (limit[id][i].second.second < n) {
                 g[i].push_back(make_pair(limit[id][i].second.second + 1, n));
+            }
         }
     }
-    for (int i = 0; i < g[0].size(); i++)
+    for (int i = 0; i < g[0].size(); i++) {
         for (int j = 0; j < g[1].size(); j++) {
             int l = max(g[0][i].first, g[1][j].first);
             int r = min(g[0][i].second, g[1][j].second);
-            if (l > r)
+            if (l > r) {
                 continue;
+            }
             lim.push_back(make_pair(l, r));
         }
+    }
     sort(lim.begin(), lim.end());
     int ans = 0;
     for (int i = 0, j; i < lim.size(); i = j) {
@@ -160,8 +166,9 @@ int get_ans(int id) {
 void work() {
     tot = gxx = 0;
     scanf("%d", &n);
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         start[i] = 0;
+    }
     for (int i = 1; i <= n - 1; i++) {
         int x, y;
         scanf("%d%d", &x, &y);
@@ -170,22 +177,26 @@ void work() {
     }
     deep[1] = 1;
     dfs(1, 0);
-    for (int i = 1; i <= 20; i++)
-        for (int j = 1; j <= n; j++)
+    for (int i = 1; i <= 20; i++) {
+        for (int j = 1; j <= n; j++) {
             father[j][i] = father[father[j][i - 1]][i - 1];
+        }
+    }
     int Q;
     scanf("%d", &Q);
     for (int tt = 1; tt <= Q; tt++) {
-        for (int j = 1; j <= 3; j++)
+        for (int j = 1; j <= 3; j++) {
             scanf("%d", &ind[j]);
+        }
         for (int i = 1; i <= 3; i++) {
             limit[i].clear();
             ans[i] = 0;
         }
-        for (int i = 1; i <= 3; i++)
+        for (int i = 1; i <= 3; i++) {
             for (int j = i + 1; j <= 3; j++) {
                 addlimit(i, j, ind[i], ind[j]);
             }
+        }
         ans[1] = get_ans(1);
         ans[2] = get_ans(2);
         ans[3] = get_ans(3);

@@ -62,8 +62,9 @@ int check(vector<pair<int, int> > card) {
         }
     }
 
-    if (flg)
+    if (flg) {
         return 1;
+    }
 
     int flg1 = 1;
     int flg2 = 0;
@@ -116,8 +117,9 @@ void solve() {
     for (int i = 1; i <= 4; i++) {
         for (int j = 1; j <= (i < 4 ? 9 : 7); j++) {
             if ((i < 4 && j != 1 && j != 9) || (i == 4 && j != 1 && j != 7)) {
-                if (counter[i][j] == 0 && counter[i][j + 1] == 0 && counter[i][j - 1] == 0)
+                if (counter[i][j] == 0 && counter[i][j + 1] == 0 && counter[i][j - 1] == 0) {
                     continue;
+                }
             }
             if (counter[i][j] == 4) {
                 continue;

@@ -1,23 +1,27 @@
 #include <iostream>
 
 using namespace std;
+
 const int N = 1111111;
-char s[N];
+
 int n;
+char s[N];
 int fa[30];
 
 void modify(char a, char b) {
     for (int i = 0; i < 26; i++) {
-        if (fa[i] == a - 'A')
+        if (fa[i] == a - 'A') {
             fa[i] = b - 'A';
+        }
     }
 }
 
 void solve() {
     scanf("%s", s);
     scanf("%d", &n);
-    for (int i = 0; i < 26; i++)
+    for (int i = 0; i < 26; i++) {
         fa[i] = i;
+    }
     for (int i = 1; i <= n; i++) {
         char s1[3], s2[3];
         scanf("%s %s", s1, s2);
@@ -30,8 +34,9 @@ void solve() {
         if (s[i] >= 'A' && s[i] <= 'Z') {
             int tmp = s[i] - 'A';
             putchar(fa[tmp] + 'A');
-        } else
+        } else {
             putchar(s[i]);
+        }
     }
     puts("");
 }

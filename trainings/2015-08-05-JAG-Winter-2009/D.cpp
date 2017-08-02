@@ -99,38 +99,44 @@ void add(int v) {
         a = face[i][0];
         b = face[i][1];
         c = face[i][2];
-        if (Sign(volume(v, a, b, c)) < 0)
+        if (Sign(volume(v, a, b, c)) < 0) {
             mark[a][b] = mark[b][a] = mark[b][c] = mark[c][b] = mark[c][a] = mark[a][c] = cnt;
-        else
+        } else {
             tmp.push_back(face[i]);
+        }
     }
     face = tmp;
     for (int i = 0; i < (int)tmp.size(); i++) {
         a = face[i][0];
         b = face[i][1];
         c = face[i][2];
-        if (mark[a][b] == cnt)
+        if (mark[a][b] == cnt) {
             insert(b, a, v);
-        if (mark[b][c] == cnt)
+        }
+        if (mark[b][c] == cnt) {
             insert(c, b, v);
-        if (mark[c][a] == cnt)
+        }
+        if (mark[c][a] == cnt) {
             insert(a, c, v);
+        }
     }
 }
 
 int Find() {
     for (int i = 2; i < n; i++) {
         Point ndir = (info[0] - info[i]).cross(info[1] - info[i]);
-        if (ndir == Point())
+        if (ndir == Point()) {
             continue;
+        }
         swap(info[i], info[2]);
-        for (int j = i + 1; j < n; j++)
+        for (int j = i + 1; j < n; j++) {
             if (Sign(volume(0, 1, 2, j)) != 0) {
                 swap(info[j], info[3]);
                 insert(0, 1, 2);
                 insert(0, 2, 1);
                 return 1;
             }
+        }
     }
     return 0;
 }
@@ -145,8 +151,9 @@ int main() {
         if (Find()) {
             memset(mark, 0, sizeof mark);
             cnt = 0;
-            for (int i = 3; i < n; i++)
+            for (int i = 3; i < n; i++) {
                 add(i);
+            }
             vector<Point> Ndir;
             for (int i = 0; i < (int)face.size(); ++i) {
                 Point p = (info[face[i][0]] - info[face[i][1]]).cross(info[face[i][2]] - info[face[i][1]]);

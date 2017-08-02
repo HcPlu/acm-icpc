@@ -2,7 +2,9 @@
 #include <vector>
 
 using namespace std;
+
 const int N = 50 * 50 + 111;
+
 const int dx[4] = {0, 0, -1, 1};
 const int dy[4] = {1, -1, 0, 0};
 

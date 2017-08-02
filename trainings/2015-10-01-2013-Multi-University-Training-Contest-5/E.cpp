@@ -24,10 +24,11 @@ void solve() {
 
     long long ans = 0;
     for (int i = 1; i <= n; i++) {
-        if (i & 1)
+        if (i & 1) {
             ans += w[i];
-        else
+        } else {
             ans -= w[i];
+        }
     }
 
     ans /= 2;

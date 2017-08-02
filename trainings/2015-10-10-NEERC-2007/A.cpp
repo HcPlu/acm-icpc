@@ -93,9 +93,9 @@ void km() {
 int flg;
 
 void solve() {
-    if (flg)
+    if (flg) {
         puts("");
-    else {
+    } else {
         flg = 1;
     }
     for (int i = 0; i < n; i++) {
@@ -116,6 +116,7 @@ void solve() {
 
 int main() {
     flg = 0;
-    for (; scanf("%d", &n) != EOF; solve());
+    for (; scanf("%d", &n) != EOF; solve()) {
+    }
     return 0;
 }

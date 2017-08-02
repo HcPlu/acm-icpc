@@ -14,18 +14,23 @@ void work() {
     scanf("%s", s2 + 1);
     int n = strlen(s1 + 1);
     memset(num, 0, sizeof(num));
-    for (int i = 1; i <= n; i++)
-        if (s1[i] == '?')
+    for (int i = 1; i <= n; i++) {
+        if (s1[i] == '?') {
             num1[i] = 3;
-        else
+        } else {
             num1[i] = s1[i] - '0';
-    for (int i = 1; i <= n; i++)
-        if (s2[i] == '?')
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        if (s2[i] == '?') {
             num2[i] = 3;
-        else
+        } else {
             num2[i] = s2[i] - '0';
-    for (int i = 1; i <= n; i++)
+        }
+    }
+    for (int i = 1; i <= n; i++) {
         num[num1[i]][num2[i]]++;
+    }
     int Min = min(num[0][1], num[1][0]);
     if (Min == num[0][1]) {
         num[1][0] -= num[0][1];
@@ -44,7 +49,8 @@ void work() {
 int main() {
     int test;
     scanf("%d", &test);
-    for (int i = 1; i <= test; i++)
+    for (int i = 1; i <= test; i++) {
         printf("Case %d: ", i), work();
+    }
     return 0;
 }

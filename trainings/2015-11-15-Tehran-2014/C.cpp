@@ -67,8 +67,9 @@ void solve() {
         int t = submission[i].id;
         int prob = submission[i].prob;
         int ok = submission[i].ok;
-        if (!ok)
+        if (!ok) {
             continue;
+        }
         if (!solved[prob][t]) {
             solved[prob][t] = 1;
             if (!number[t]) {
@@ -96,5 +97,6 @@ void solve() {
 }
 
 int main() {
-    for (; scanf("%d%d%d", &teams, &problems, &n) == 3 && (teams || problems || n); solve());
+    for (; scanf("%d%d%d", &teams, &problems, &n) == 3 && (teams || problems || n); solve()) {
+    }
 }

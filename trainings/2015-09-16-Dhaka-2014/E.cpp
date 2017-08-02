@@ -11,8 +11,9 @@ bool check(double t) {
     double Sinb = Sina / lambda;
     double Tanb = (Sinb) / sqrt(1 - Sinb * Sinb);
     double npos = w - len - Tanb * t;
-    if (npos >= pos)
+    if (npos >= pos) {
         return true;
+    }
     return false;
 }
 
@@ -25,10 +26,11 @@ void solve() {
     }
     for (int i = 0; i < 50; i++) {
         mid = (le + ri) / 2;
-        if (check(mid))
+        if (check(mid)) {
             ri = mid;
-        else
+        } else {
             le = mid;
+        }
     }
     printf("%0.4f\n", le);
 }

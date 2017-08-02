@@ -38,8 +38,9 @@ struct Point {
 
 bool equal() {
     for (int i = 0; i < 4; i++) {
-        if (dist(point[i], point[(i + 1) % 4]) != dist(point[(i + 1) % 4], point[(i + 2) % 4]))
+        if (dist(point[i], point[(i + 1) % 4]) != dist(point[(i + 1) % 4], point[(i + 2) % 4])) {
             return 0;
+        }
     }
     return 1;
 }
@@ -54,8 +55,9 @@ void solve() {
         Point t2 = point[2] - point[1];
         if (dot(t1, t2) == 0) {
             ans = "Square";
-        } else
+        } else {
             ans = "Diamond";
+        }
     } else {
         Point t1 = point[1] - point[0];
         Point t2 = point[2] - point[1];

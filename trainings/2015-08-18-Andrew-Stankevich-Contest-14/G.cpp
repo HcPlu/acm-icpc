@@ -1,14 +1,13 @@
 #include <cstdio>
 #include <cstring>
-#include <iostream>
 
 using namespace std;
 
 const int N = 222222;
-const int N = 26;
+const int M = 26;
 
 struct Palindromic_Tree {
-    int next[N][N];
+    int next[N][M];
     int fail[N];
     int cnt[N];
     int num[N];
@@ -19,8 +18,9 @@ struct Palindromic_Tree {
     int p;
 
     int newnode(int l) {
-        for (int i = 0; i < N; ++i)
+        for (int i = 0; i < N; ++i) {
             next[p][i] = 0;
+        }
         cnt[p] = 0;
         num[p] = 0;
         len[p] = l;
@@ -38,8 +38,9 @@ struct Palindromic_Tree {
     }
 
     int get_fail(int x) {
-        while (S[n - len[x] - 1] != S[n])
+        while (S[n - len[x] - 1] != S[n]) {
             x = fail[x];
+        }
         return x;
     }
 

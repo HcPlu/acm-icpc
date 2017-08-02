@@ -19,10 +19,12 @@ void ERROR() {
 }
 
 bool check(long long x) {
-    if (x > 1000000000)
+    if (x > 1000000000) {
         return true;
-    if (x < -1000000000)
+    }
+    if (x < -1000000000) {
         return true;
+    }
     return false;
 }
 
@@ -31,8 +33,9 @@ void work(int x) {
     stack[top] = x;
     for (int i = 1; i <= cnt; i++) {
         //printf("%d ", type[i]);
-        if (type[i] == 1)
+        if (type[i] == 1) {
             stack[++top] = num[i];
+        }
         if (type[i] == 2) {
             if (top == 0) {
                 ERROR();
@@ -40,8 +43,9 @@ void work(int x) {
             }
             top--;
         }
-        if (type[i] == 3)
+        if (type[i] == 3) {
             stack[top] *= -1;
+        }
         if (type[i] == 4) {
             stack[top + 1] = stack[top];
             top++;
@@ -132,30 +136,42 @@ int main() {
         while (1) {
             scanf("%s", c);
             ++cnt;
-            if (!strcmp(c, "QUIT"))
+            if (!strcmp(c, "QUIT")) {
                 return 0;
-            if (!strcmp(c, "NUM"))
+            }
+            if (!strcmp(c, "NUM")) {
                 type[cnt] = 1, scanf("%d", &num[cnt]);
-            if (!strcmp(c, "POP"))
+            }
+            if (!strcmp(c, "POP")) {
                 type[cnt] = 2;
-            if (!strcmp(c, "INV"))
+            }
+            if (!strcmp(c, "INV")) {
                 type[cnt] = 3;
-            if (!strcmp(c, "DUP"))
+            }
+            if (!strcmp(c, "DUP")) {
                 type[cnt] = 4;
-            if (!strcmp(c, "SWP"))
+            }
+            if (!strcmp(c, "SWP")) {
                 type[cnt] = 5;
-            if (!strcmp(c, "ADD"))
+            }
+            if (!strcmp(c, "ADD")) {
                 type[cnt] = 6;
-            if (!strcmp(c, "SUB"))
+            }
+            if (!strcmp(c, "SUB")) {
                 type[cnt] = 7;
-            if (!strcmp(c, "MUL"))
+            }
+            if (!strcmp(c, "MUL")) {
                 type[cnt] = 8;
-            if (!strcmp(c, "DIV"))
+            }
+            if (!strcmp(c, "DIV")) {
                 type[cnt] = 9;
-            if (!strcmp(c, "MOD"))
+            }
+            if (!strcmp(c, "MOD")) {
                 type[cnt] = 10;
-            if (!strcmp(c, "END"))
+            }
+            if (!strcmp(c, "END")) {
                 break;
+            }
         }
         cnt--;
         //for(int i = 1; i <= cnt; i++)

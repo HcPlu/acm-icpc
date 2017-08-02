@@ -1,10 +1,12 @@
 #include <iostream>
 #include <cmath>
 
-
 using namespace std;
+
 const double eps = 1e-8;
+
 const int N = 111111;
+
 int n;
 double cost_flat, cost_hill, vmax, rest;
 
@@ -19,8 +21,9 @@ bool check(double v) {
             cost += dist[i] * cost_flat * v + dist[i] * cost_hill * s;
         } else {
             double tmp = dist[i] * cost_flat * v + cost_hill * s * dist[i];
-            if (tmp > 0)
+            if (tmp > 0) {
                 cost += tmp;
+            }
         }
     }
     return cost <= rest;
@@ -63,8 +66,9 @@ void solve() {
         double mid = (l + r) / 2;
         if (check(mid)) {
             l = mid;
-        } else
+        } else {
             r = mid;
+        }
     }
 
     if (check(l)) {

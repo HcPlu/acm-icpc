@@ -15,23 +15,25 @@ void solve() {
 
     int ans = 0;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (s[i][j] == 'R' || s[i][j] == 'G') {
                 ans++;
                 int tx = i, ty = j;
                 while (s[tx][ty] == 'R' || s[tx][ty] == 'G' && tx <= n && ty <= m) {
-                    if (s[tx][ty] == 'R')
+                    if (s[tx][ty] == 'R') {
                         s[tx][ty] = '.';
-                    else
+                    } else {
                         s[tx][ty] = 'B';
+                    }
                     tx++;
                     ty++;
                 }
             }
         }
+    }
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         for (int j = m; j >= 1; j--) {
             if (s[i][j] == 'B') {
                 ans++;
@@ -43,6 +45,7 @@ void solve() {
                 }
             }
         }
+    }
 
     printf("%d\n", ans);
 }

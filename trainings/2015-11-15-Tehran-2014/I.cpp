@@ -10,8 +10,9 @@ int n;
 int x[N], y[N];
 
 void work() {
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         scanf("%d %d", &x[i], &y[i]);
+    }
     bool flag = true;
     for (int i = n; i >= 2; i--) {
         int nowx = x[i] - x[i - 1];

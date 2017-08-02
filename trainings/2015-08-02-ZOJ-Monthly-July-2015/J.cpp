@@ -1,21 +1,29 @@
 #include <iostream>
 
-const int N = 20000;
+using namespace std;
+
 const int dx[4] = {1, 0, -1, 0};
 const int dy[4] = {0, 1, 0, -1};
+
+const int N = 20000;
+
 struct Pos {
     int x, y, d, fnd;
 } q[N];
+
 int f[30][30][4][2], n;
 int g[30][30];
-using namespace std;
 
 void solve() {
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
-            for (int d = 0; d < 4; d++)
-                for (int fnd = 0; fnd < 2; fnd++)
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            for (int d = 0; d < 4; d++) {
+                for (int fnd = 0; fnd < 2; fnd++) {
                     f[i][j][d][fnd] = -1;
+                }
+            }
+        }
+    }
 
     if (g[0][0] == 2) {
         puts("-1");
@@ -42,8 +50,9 @@ void solve() {
                 int nx = tmp.x + dx[tmp.d];
                 int ny = tmp.y + dy[tmp.d];
                 if (nx < n && ny < n && nx >= 0 && ny >= 0) {
-                    if (g[nx][ny] == 1 || g[nx][ny] == 2)
+                    if (g[nx][ny] == 1 || g[nx][ny] == 2) {
                         continue;
+                    }
                     if (g[nx][ny] == 0 && f[nx][ny][tmp.d][tmp.fnd] == -1) {
                         Pos nxtposition;
                         nxtposition.x = nx;
@@ -77,8 +86,9 @@ void solve() {
             if (i == 2) {
                 nx = tmp.x, ny = tmp.y, nd = tmp.d, nfnd = tmp.fnd;
                 nd--;
-                if (nd < 0)
+                if (nd < 0) {
                     nd = 3;
+                }
             }
             if (f[nx][ny][nd][nfnd] == -1) {
                 Pos nxtposition;
@@ -106,9 +116,11 @@ int main() {
     scanf("%d", &T);
     for (; T--;) {
         scanf("%d", &n);
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
                 g[i][j] = 0;
+            }
+        }
         int tp, x, y;
         while (scanf("%d%d%d", &tp, &x, &y) && !(tp == -1 && x == -1 && y == -1)) {
             g[x][y] = tp;

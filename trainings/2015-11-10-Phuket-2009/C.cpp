@@ -26,8 +26,9 @@ int main() {
     while (1) {
         scanf("%lf", &R);
         scanf("%lf%lf%lf", &r1, &r2, &r3);
-        if (R < 0 && r1 < 0 && r2 < 0 && r3 < 0)
+        if (R < 0 && r1 < 0 && r2 < 0 && r3 < 0) {
             break;
+        }
         printf("Case %d: ", ++test);
         work();
     }

@@ -111,5 +111,6 @@ void solve(void) {
 }
 
 int main(void) {
-    for (; ~scanf("%lf%lf%lf%lf", &low.x, &low.y, &high.x, &high.y); solve());
+    for (; ~scanf("%lf%lf%lf%lf", &low.x, &low.y, &high.x, &high.y); solve()) {
+    }
 }

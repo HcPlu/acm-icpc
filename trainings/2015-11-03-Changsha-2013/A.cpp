@@ -28,7 +28,8 @@ void solve() {
 
     int now = 1;
     for (int i = 1; i <= m; i++) {
-        for (; s[now] <= query[i].first && now <= n; now++);
+        for (; s[now] <= query[i].first && now <= n; now++) {
+        }
         answer[query[i].second] = min(1LL * query[i].first * p[now - 1], best[now]);
     }
 

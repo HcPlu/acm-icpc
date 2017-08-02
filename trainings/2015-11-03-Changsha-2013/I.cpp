@@ -40,17 +40,19 @@ void dfs(int x, int fa, int flag) {
     f[x][0] = current;
     for (int i = start[x]; i; i = road[i].next) {
         int to = road[i].y;
-        if (to == fa)
+        if (to == fa) {
             continue;
+        }
         dfs(to, x, flag);
         f[x][0] = add(f[x][0], uni(f[to][0], f[to][1]));
     }
     f[x][1] = make_pair(-f[x][0].second, -f[x][0].first);
     int delta = 0;
-    if (S[x])
+    if (S[x]) {
         delta = Y;
-    else
+    } else {
         delta = X;
+    }
     f[x][1].first -= delta;
     f[x][1].second += delta;
     return;
@@ -58,8 +60,9 @@ void dfs(int x, int fa, int flag) {
 
 void work() {
     tot = 0;
-    for (int i = 1; i <= n + 1; i++)
+    for (int i = 1; i <= n + 1; i++) {
         start[i] = 0;
+    }
     for (int i = 2; i <= n + 1; i++) {
         scanf("%d%d%d%d", &value[i], &F[i], &S[i], &P[i]);
         F[i]++;

@@ -16,8 +16,9 @@ void work() {
     exist.clear();
     int n, m;
     scanf("%d%d", &m, &n);
-    for (int i = 1; i <= m; i++)
+    for (int i = 1; i <= m; i++) {
         scanf("%d%d", &troop[i].first, &troop[i].second);
+    }
     sort(troop + 1, troop + 1 + m);
     reverse(troop + 1, troop + 1 + m);
     for (int i = 1; i <= n; i++) {

@@ -20,8 +20,9 @@ int sqr(int x) {
 }
 
 int calc(int x, int y) {
-    if (y >= 40)
+    if (y >= 40) {
         return 0;
+    }
     long long res = 1LL << y;
     return 1LL * x / res;
 }
@@ -29,9 +30,11 @@ int calc(int x, int y) {
 void work() {
     int t = strlen(c + 1);
     cnt = 0;
-    for (int i = 1; i <= t; i++)
-        if ((c[i] >= '0' && c[i] <= '9') || c[i] == '<' || c[i] == '>' || c[i] == 'S')
+    for (int i = 1; i <= t; i++) {
+        if ((c[i] >= '0' && c[i] <= '9') || c[i] == '<' || c[i] == '>' || c[i] == 'S') {
             s[++cnt] = c[i];
+        }
+    }
     s[cnt + 1] = s[cnt + 2] = s[cnt + 3] = 0;
 
     int top1 = 0, top2 = 0;
@@ -80,8 +83,9 @@ void work() {
 
 int main() {
     while (gets(c + 1)) {
-        if (c[1] == '#')
+        if (c[1] == '#') {
             break;
+        }
         work();
     }
     return 0;

@@ -39,7 +39,8 @@ void solve(void) {
     }
 
     for (int i = 1, j = 0; i <= lena; ++i) {
-        for (j++; j <= lenb && a[i] != b[j]; ++j);
+        for (j++; j <= lenb && a[i] != b[j]; ++j) {
+        }
         if (j > lenb) {
             puts("No");
             return;
@@ -50,5 +51,6 @@ void solve(void) {
 
 int main(void) {
     int tests;
-    for (scanf("%d", &tests); tests--; solve());
+    for (scanf("%d", &tests); tests--; solve()) {
+    }
 }

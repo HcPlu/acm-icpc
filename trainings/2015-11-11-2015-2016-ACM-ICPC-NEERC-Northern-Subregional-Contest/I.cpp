@@ -10,7 +10,6 @@ using namespace std;
 
 const int N = 100005;
 
-
 vector<int> queue;
 multiset<pair<int, int> > adj[N];
 
@@ -29,12 +28,12 @@ int main() {
         bel[a].push_back(make_pair(b, c));
         bel[c].push_back(make_pair(b, a));
         degree[b] += 2;
-
     }
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         if (!degree[i]) {
             queue.push_back(i);
         }
+    }
     for (int head = 0; head < queue.size(); head++) {
         int now = queue[head];
         multiset<pair<int, int> >::iterator it = adj[now].begin();
@@ -48,8 +47,9 @@ int main() {
         }
     }
     int L = 0, R = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         ans[i] = -0x3f3f3f3f;
+    }
     for (int head = queue.size() - 1; head >= 0; head--) {
         int now = queue[head];
         int counter1 = 0, counter2 = 0;
@@ -72,10 +72,12 @@ int main() {
             ans[now] = R++;
         }
     }
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++) {
         ans[i] -= (L - 1);
-    for (int i = 1; i <= n; i++)
+    }
+    for (int i = 1; i <= n; i++) {
         value[ans[i]] = i;
+    }
     for (int i = 1; i <= n; i++) {
         printf("%d%s", value[i], (i == n) ? "\n" : " ");
     }

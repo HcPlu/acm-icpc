@@ -10,7 +10,7 @@ const int M = 25;
 
 set<pair<int, int> > go;
 
-struct node {
+struct Node {
     int x, y, key, next;
 } road[N * 2];
 

@@ -16,14 +16,17 @@ int main() {
     num[0] = a, num[1] = b, num[2] = n - a - b;
     scanf("%s", c + 1);
     int len = strlen(c + 1), ans = 0;
-    for (int i = 1; i <= len; i++)
+    for (int i = 1; i <= len; i++) {
         now[c[i] - '0']++;
+    }
     for (int i = 1; i <= len; i++) {
         if (num[c[i] - '0'] < now[c[i] - '0']) {
             int id = 0;
-            for (int j = 0; j <= 2; j++)
-                if (num[j] > now[j])
+            for (int j = 0; j <= 2; j++) {
+                if (num[j] > now[j]) {
                     id = j;
+                }
+            }
             ans++;
             now[c[i] - '0']--;
             now[id]++;

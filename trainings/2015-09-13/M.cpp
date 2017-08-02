@@ -1,18 +1,21 @@
 #include <cstring>
 #include <cstdio>
 #include <iostream>
-#include <vector>
 #include <cassert>
 
 using namespace std;
-const int N(55555), LOG(16);
+
+const int N = 55555;
+const int LOG = 16;
+
+int l;
 int fa[N][LOG], pth[N], siz[N], idx[N], dep[N];
 int q[N];
 char str[111];
+
 struct Edge {
     int y, next;
 } edges[N * 2];
-int l;
 
 void build(int x, int y) {
     edges[++l].next = idx[x];

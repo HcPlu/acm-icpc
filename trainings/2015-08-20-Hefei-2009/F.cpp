@@ -22,7 +22,8 @@ __inline int lowbit(int x) {
 
 void solve(Complex number[], int length, int type) {
     for (int i = 1, j = 0; i < length - 1; ++i) {
-        for (int k = length; j ^= k >>= 1, ~j & k;);
+        for (int k = length; j ^= k >>= 1, ~j & k;) {
+        }
         if (i < j) {
             std::swap(number[i], number[j]);
         }
@@ -48,7 +49,8 @@ void solve(Complex number[], int length, int type) {
 
 void calc() {
     int length = n + m;
-    for (; lowbit(length) != length; ++length);
+    for (; lowbit(length) != length; ++length) {
+    }
 
     std::fill(number1, number1 + length, 0);
     std::fill(number2, number2 + length, 0);

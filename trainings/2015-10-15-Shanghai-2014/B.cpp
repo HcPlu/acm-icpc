@@ -2,13 +2,15 @@
 #include <vector>
 
 using namespace std;
+
 const int N = 11111;
-int dx[222];
-int dy[222];
+
 struct Step {
     char dir;
     int len;
 } step[N];
+
+int dx[222], dy[222];
 vector<vector<int> > f;
 
 void solve() {
