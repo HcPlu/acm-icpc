@@ -4,16 +4,16 @@
 
 using namespace std;
 
-const int MAXN = 222222;
+const int N = 222222;
 const int N = 26;
 
 struct Palindromic_Tree {
-    int next[MAXN][N];
-    int fail[MAXN];
-    int cnt[MAXN];
-    int num[MAXN];
-    int len[MAXN];
-    int S[MAXN];
+    int next[N][N];
+    int fail[N];
+    int cnt[N];
+    int num[N];
+    int len[N];
+    int S[N];
     int last;
     int n;
     int p;

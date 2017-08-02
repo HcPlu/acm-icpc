@@ -5,9 +5,10 @@
 
 using namespace std;
 
-#define N 222222
-#define M 25
 #define MP(x, y) make_pair(x,y)
+
+const int N = 222222;
+const int M = 25;
 
 set<pair<int, int> > go;
 

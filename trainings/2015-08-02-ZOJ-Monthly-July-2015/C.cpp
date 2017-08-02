@@ -2,9 +2,9 @@
 #include <map>
 
 using namespace std;
-const int MAXN = 2000000;
-char s[MAXN];
-char ans[MAXN];
+const int N = 2000000;
+char s[N];
+char ans[N];
 
 bool isch(char x) {
     return ((x >= 'A' && x <= 'Z') || (x >= 'a' && x <= 'z'));

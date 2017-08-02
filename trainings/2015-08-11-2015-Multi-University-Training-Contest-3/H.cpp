@@ -10,9 +10,9 @@ typedef long long LL;
 #define INF 1000000000000000000LL
 
 int l, r;
-LL ans = 0;
+long long ans = 0;
 
-void dfs(LL x, LL y) {
+void dfs(long long x, long long y) {
     if (y >= ans)
         return;
     if (x < 0)

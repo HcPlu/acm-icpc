@@ -3,14 +3,14 @@
 using namespace std;
 typedef unsigned long long LL;
 
-const LL M = 1e9 + 7;
-
+const long long M = 1e9 + 7;
 const int MAX_N = 11111;
+
 int T, n;
 int length[MAX_N];
 char s[MAX_N];
-LL sum[MAX_N], hash[MAX_N], rev_hash[MAX_N];
-LL pow[MAX_N];
+long long sum[MAX_N], hash[MAX_N], rev_hash[MAX_N];
+long long pow[MAX_N];
 
 int main() {
     scanf("%d", &T);
@@ -34,7 +34,7 @@ int main() {
         int ans = 0;
         for (int i = 1; i <= n; i++)
             for (int j = 1; j <= n; j++) {
-                LL myhash, myrev_hash;
+                long long myhash, myrev_hash;
                 if (i != j) {
                     myhash = hash[i] * pow[length[j]] + hash[j];
                     myrev_hash = rev_hash[j] * pow[length[i]] + rev_hash[i];

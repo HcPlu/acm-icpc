@@ -2,7 +2,7 @@
 #include <queue>
 
 const int N = 111111;
-const int inf = 1 << 29;
+const int INF = 1 << 29;
 using namespace std;
 struct Edge {
     int to, nxt, c;
@@ -93,7 +93,7 @@ void Dinic() {
     while (bfs()) {
         for (int i = 1; i <= T; i++)
             cur[i] = head[i];
-        flow += dfs(S, inf);
+        flow += dfs(S, INF);
     }
     if (flow < 2) {
         puts("NO");

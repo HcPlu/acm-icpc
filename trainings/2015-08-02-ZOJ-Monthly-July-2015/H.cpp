@@ -3,11 +3,11 @@
 #define PII pair<int, int>
 
 const int INF = 233333;
-const int MAXN = 200000;
+const int N = 200000;
 using namespace std;
 int n, m, q;
 
-PII T[MAXN];
+PII T[N];
 
 
 PII update(PII p1, PII p2) {

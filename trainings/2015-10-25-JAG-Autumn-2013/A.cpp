@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-const int inf = 1 << 30;
+const int INF = 1 << 30;
 const int N = 2222;
 int isx[N], num[N], n;
 
@@ -10,7 +10,7 @@ void solve() {
     char text[100];
     for (int i = 0; i <= n; i++)
         isx[i] = 0;
-    num[0] = inf;
+    num[0] = INF;
     vector<int> pos;
     for (int i = 1; i <= n; i++) {
         scanf("%s", text);
@@ -46,8 +46,8 @@ void solve() {
         }
     }
 
-    int minx = -inf;
-    int maxx = inf;
+    int minx = -INF;
+    int maxx = INF;
     for (int i = 0; i < (int)pos.size(); i++) {
         int now = pos[i];
         if (now & 1) {

@@ -11,9 +11,10 @@ struct Point {
     }
 };
 
-const int maxn = 100 + 10;
-Point P[maxn];
-int n, m, y[maxn], on[maxn], on2[maxn], left[maxn];
+const int N = 100 + 10;
+
+Point P[N];
+int n, m, y[N], on[N], on2[N], left[N];
 
 int solve() {
     sort(P, P + n);

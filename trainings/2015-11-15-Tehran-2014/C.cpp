@@ -2,7 +2,7 @@
 
 using namespace std;
 const int N = 22222;
-int hassolved[22], solved[22][222], number[222], total, maxn;
+int hassolved[22], solved[22][222], number[222], total, N;
 int teams, problems, n;
 
 struct Submission {
@@ -28,7 +28,7 @@ bool cmp(Submission p1, Submission p2) {
 int check() {
     int flag = 1;
     flag = flag && (total == teams);
-    flag = flag && (maxn < problems);
+    flag = flag && (N < problems);
     int tmp = 1;
     for (int i = 0; i < problems; i++) {
         if (!hassolved[i]) {
@@ -57,7 +57,7 @@ void solve() {
     string left = "--:--:--";
     string right = "--:--:--";
     total = 0;
-    maxn = 0;
+    N = 0;
     memset(hassolved, 0, sizeof hassolved);
     memset(solved, 0, sizeof solved);
     memset(number, 0, sizeof number);
@@ -78,7 +78,7 @@ void solve() {
                 number[t]++;
             }
             hassolved[prob]++;
-            maxn = max(number[t], maxn);
+            N = max(number[t], N);
 
         }
         int flag = check();

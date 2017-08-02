@@ -2,7 +2,7 @@
 
 using namespace std;
 const int N = 1111;
-const int inf = 1 << 29;
+const int INF = 1 << 29;
 const int assist[4] = {0, 4, 8, 11};
 int steepness[N];
 int f[N][11][55][4];
@@ -20,7 +20,7 @@ void solve() {
         for (int j = 0; j <= m; j++)
             for (int k = 0; k <= energy; k++)
                 for (int pre = 0; pre <= 3; pre++)
-                    f[i][j][k][pre] = inf;
+                    f[i][j][k][pre] = INF;
 
 
     f[0][m][energy][0] = 0;
@@ -28,7 +28,7 @@ void solve() {
         for (int j = 0; j <= m; j++)
             for (int k = 0; k <= energy; k++)
                 for (int pre = 0; pre <= 3; pre++) {
-                    if (f[i][j][k][pre] >= inf)
+                    if (f[i][j][k][pre] >= INF)
                         continue;
 
                     if (j == 0 && pre > k) {
@@ -50,7 +50,7 @@ void solve() {
                 }
     }
 
-    int ans = inf;
+    int ans = INF;
     for (int k = 0; k <= m; k++)
         for (int rest = 0; rest <= energy; rest++)
             for (int pre = 0; pre <= 3; pre++)

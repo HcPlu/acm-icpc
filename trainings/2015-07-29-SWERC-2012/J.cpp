@@ -1,11 +1,11 @@
 #include <iostream>
 
 using namespace std;
-const int MAXN = 500;
+const int N = 500;
 pair<pair<int, int>, int> opt[10], outp[10];
 int cnt, anstot, tag, ans, flg, T;
-int a[MAXN];
-int used[MAXN];
+int a[N];
+int used[N];
 
 void check(int dep) {
     if (a[cnt] == tag) {

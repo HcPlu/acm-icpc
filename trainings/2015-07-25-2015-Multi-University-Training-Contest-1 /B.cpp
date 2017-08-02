@@ -6,8 +6,6 @@ using namespace std;
 #define N 100005
 #define M 27
 
-typedef long long LL;
-
 int n, k, y[N], a[N];
 int bh[N], Min[N][M], Max[N][M];
 int ans[N];
@@ -60,7 +58,7 @@ void work() {
     for (int i = 1; i <= bh[n]; i++)
         for (int j = 1; j <= n; j++)
             Min[j][i] = min(Min[j][i - 1], Min[min(n, j + (1 << i - 1))][i - 1]);
-    LL CC = 0;
+    long long CC = 0;
     for (int i = 1; i <= n; i++) {
         int l = i, r = n;
         while (l <= r) {

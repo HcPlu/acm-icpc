@@ -9,8 +9,8 @@ typedef long long LL;
 
 int n, a[N];
 int nxt[44][N];
-LL S[N];
-LL ans = 0;
+long long S[N];
+long long ans = 0;
 
 void work() {
     ans = 0;
@@ -19,7 +19,7 @@ void work() {
         scanf("%d", &a[i]);
     for (int i = 1; i <= n; i++)
         S[i] = S[i - 1] + a[i];
-    LL up = 0, down = 1;
+    long long up = 0, down = 1;
     int k = 0;
     while (1) {
         if (up > S[n])

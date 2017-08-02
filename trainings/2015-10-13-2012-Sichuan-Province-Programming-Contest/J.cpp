@@ -105,8 +105,8 @@ void work() {
     for (int i = 1; i <= Q; i++) {
         int x, y;
         scanf("%d%d", &x, &y);
-        LL ans = get_dis(x, y);
-        LL temp = ans;
+        long long ans = get_dis(x, y);
+        long long temp = ans;
         for (int S = 1; S <= 2; S++)
             for (int T = 1; T <= 2; T++) {
                 if (S == T)

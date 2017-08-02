@@ -1,8 +1,8 @@
 #include <iostream>
 
 using namespace std;
-const int MAXN = 200000;
-char key[MAXN], code[MAXN];
+const int N = 200000;
+char key[N], code[N];
 
 int main() {
     while (scanf("%s", key + 1) && key[1] != '0') {

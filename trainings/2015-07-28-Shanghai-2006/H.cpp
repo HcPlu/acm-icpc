@@ -8,7 +8,6 @@ using namespace std;
 #define LIMIT 1000
 #define MP make_pair
 
-
 char type[1000];
 
 int seq[400005];

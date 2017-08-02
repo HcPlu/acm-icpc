@@ -7,12 +7,12 @@ const long long MOD = 998244353;
 
 typedef long long LL;
 
-LL times(LL x, LL y) {
+long long times(long long x, long long y) {
     return x * y % MOD;
 }
 
-LL pow(LL x, LL y) {
-    LL ans = 1;
+long long pow(long long x, long long y) {
+    long long ans = 1;
     for (; y; y >>= 1, x = times(x, x))
         if (y & 1)
             ans = times(ans, x);

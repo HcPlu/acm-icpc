@@ -29,7 +29,7 @@ void work() {
         ans += (ULL)tmp[i].second * res;
         res -= (ULL)tmp[i].second;
     }
-    LL CC = 1;
+    long long CC = 1;
     for (int i = 2; i <= n; i++)
         CC = (CC * (tmp[i].second + 1)) % MOD;
     printf("Case %d: ", ++test);

@@ -2,9 +2,9 @@
 #include <vector>
 
 using namespace std;
-const int MAXN = 2000;
-vector<int> adj[MAXN];
-int n, m, visit[MAXN], matchy[MAXN], times;
+const int N = 2000;
+vector<int> adj[N];
+int n, m, visit[N], matchy[N], times;
 
 bool dfs(int x) {
     for (int i = 0; i < (int)adj[x].size(); i++) {

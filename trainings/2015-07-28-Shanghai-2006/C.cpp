@@ -2,8 +2,10 @@
 #include <cmath>
 #include <iostream>
 
-const int MAXN = 200000;
 using namespace std;
+
+const int N = 200000;
+const long long INF = 1LL << 62;
 
 long long my_abs(const long long &x) {
     return (x < 0) ? -x : x;
@@ -11,11 +13,11 @@ long long my_abs(const long long &x) {
 
 struct Node {
     int to, nxt;
-} nod[MAXN * 2];
-long long inf = 1LL << 62;
-long long sum[MAXN];
-int w[MAXN];
-int head[MAXN], vis[MAXN];
+} nod[N * 2];
+
+long long sum[N];
+int w[N];
+int head[N], vis[N];
 int n, m, tot;
 
 void dfs(int x) {
@@ -55,7 +57,7 @@ int main() {
         }
         vis[1] = 1;
         dfs(1);
-        long long ans = inf;
+        long long ans = INF;
         for (int i = 1; i <= n; i++)
             if (my_abs(sum[1] - sum[i] - sum[i]) < ans)
                 ans = my_abs(sum[1] - sum[i] - sum[i]);

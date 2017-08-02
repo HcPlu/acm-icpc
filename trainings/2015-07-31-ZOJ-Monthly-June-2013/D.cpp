@@ -3,17 +3,17 @@
 using namespace std;
 
 const int INF = (1 << 29);
-const int MAXN = 100000;
+const int N = 100000;
 const int HP = 1001;
 const int ATK = 11;
 
 struct Monster {
     int hp, atk, id;
-} monster[MAXN];
+} monster[N];
 
 int f[HP][HP][ATK];
 int hp, atk, p, n;
-pair<int, int> g[MAXN][10];
+pair<int, int> g[N][10];
 
 void update(pair<int, int> &p1, const pair<int, int> &p2) {
     if (p1.first < p2.first)

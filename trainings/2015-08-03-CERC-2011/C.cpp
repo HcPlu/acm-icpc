@@ -18,7 +18,7 @@ void ERROR() {
     return;
 }
 
-bool check(LL x) {
+bool check(long long x) {
     if (x > 1000000000)
         return true;
     if (x < -1000000000)

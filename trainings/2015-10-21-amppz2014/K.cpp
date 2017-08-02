@@ -16,7 +16,7 @@ int n, tot, start[N];
 
 struct Node {
     int x, y, next;
-    LL key;
+    long long key;
 } road[N * 16];
 
 int get_value(int x, int y) {

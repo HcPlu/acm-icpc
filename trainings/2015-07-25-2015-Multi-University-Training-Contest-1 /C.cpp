@@ -1,3 +1,5 @@
+#pragma comment(linker, "/STACK:1024000000,1024000000")
+
 #include <cstdio>
 #include <cmath>
 #include <iostream>
@@ -6,7 +8,7 @@ using namespace std;
 
 #define N 100005
 #define MP(x, y) make_pair(x,y)
-#pragma comment(linker, "/STACK:1024000000,1024000000")
+
 int start[N], tot = 0, n, Max[N], father[N], deep[N], now, cost[N];
 pair<int, int> w[N];
 

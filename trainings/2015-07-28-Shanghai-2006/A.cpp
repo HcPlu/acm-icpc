@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define N 2005
+const int N = 2005;
 
 int base[N], need[N];
 

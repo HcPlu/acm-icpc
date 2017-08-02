@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-const int inf = 1e9;
+const int INF = 1e9;
 const int N = 1111;
 
 using namespace std;

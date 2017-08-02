@@ -1,12 +1,14 @@
 #include <iostream>
 
 using namespace std;
-const int MAXN = 60;
+
+const int N = 60;
 const int MAXW = 600;
-const int inf = 1 << 30;
+const int INF = 1 << 30;
+
 int T, n, hlmt, wlmt;
-int pos[MAXN], h[MAXN];
-int f[MAXN][MAXW];
+int pos[N], h[N];
+int f[N][MAXW];
 
 int main() {
     scanf("%d", &T);
@@ -31,7 +33,7 @@ int main() {
 
         for (int i = 1; i <= n; i++)
             for (int j = 1; j <= maxn; j++)
-                f[i][j] = inf;
+                f[i][j] = INF;
 
         for (int i = 1; i <= n; i++)
             if (h[i] <= hlmt) {
@@ -53,14 +55,14 @@ int main() {
                     f[i][pos[i]] = min(f[i][pos[i]], f[i - 1][k]);
         }
 
-        int ans = inf;
+        int ans = INF;
         for (int i = 1; i <= n; i++)
             if (h[i] == maxh)
                 ans = min(ans, f[i][pos[i]]);
 
         for (int i = 1; i <= n; i++)
             for (int j = 1; j <= maxn; j++)
-                f[i][j] = inf;
+                f[i][j] = INF;
 
 
         for (int i = 1; i <= n; i++)
@@ -87,7 +89,7 @@ int main() {
                 ans = min(ans, f[i][pos[i]]);
 
 
-        if (ans == inf) {
+        if (ans == INF) {
             printf("Case #%d: %d\n", tt, -1);
         } else {
             printf("Case #%d: %d\n", tt, ans);

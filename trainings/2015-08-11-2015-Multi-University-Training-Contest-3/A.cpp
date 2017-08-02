@@ -3,9 +3,9 @@
 #define lc (x << 1)
 #define rc ((lc) + 1)
 
-const long long inf = 1LL << 60;
+const long long INF = 1LL << 60;
 using namespace std;
-const int MAXN = 111111;
+const int N = 111111;
 
 class Node {
 public:
@@ -14,7 +14,7 @@ public:
     Node() {
         for (int i = 0; i < 2; ++i) {
             for (int j = 0; j < 2; ++j) {
-                value[i][j] = -inf;
+                value[i][j] = -INF;
             }
         }
     }
@@ -33,9 +33,9 @@ public:
     }
 };
 
-Node T[MAXN * 4];
+Node T[N * 4];
 
-int a[MAXN];
+int a[N];
 
 void update(int x) {
 }
@@ -106,7 +106,7 @@ void solve() {
             int ql, qr;
             scanf("%d%d", &ql, &qr);
             Node result = query(1, 1, n, ql, qr);
-            long long answer = -inf;
+            long long answer = -INF;
             for (int a = 0; a < 2; ++a) {
                 for (int b = 0; b < 2; ++b) {
                     answer = max(answer, result.value[a][b]);

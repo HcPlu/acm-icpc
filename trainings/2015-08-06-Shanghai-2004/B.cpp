@@ -3,7 +3,7 @@
 #define GG pair<int, pair<int, int> >
 using namespace std;
 const int N = 100;
-const int inf = 12343210;
+const int INF = 12343210;
 char mat[N][N];
 const int dx[5] = {-1, 0, 1, 0, 0};
 const int dy[5] = {0, 1, 0, -1, 0};
@@ -183,7 +183,7 @@ void chkmin(GG &p1, GG p2) {
 }
 
 bool lianliankan() {
-    GG nowans = make_pair(123, make_pair(inf, inf));
+    GG nowans = make_pair(123, make_pair(INF, INF));
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= m; j++) {
             if (mat[i][j] != '*') {

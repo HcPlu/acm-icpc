@@ -2,11 +2,11 @@
 #include <vector>
 
 using namespace std;
-const int MAXN = 1024 * 10 + 10;
+const int N = 1024 * 10 + 10;
 const int max_state = (1 << 16) - 1;
 int used[10], a[10], b[10];
 int total[max_state + 10];
-vector<int> f[MAXN];
+vector<int> f[N];
 
 void check() {
     int sum = 0;
@@ -33,7 +33,7 @@ void dfs(int dep) {
 }
 
 void get_eight() {
-    for (int num = 10; num < MAXN; num++)
+    for (int num = 10; num < N; num++)
         if (f[num].size()) {
             for (int i = 0; i < (int)f[num].size(); i++)
                 for (int j = i + 1; j < (int)f[num].size(); j++) {
@@ -55,7 +55,7 @@ void get_ans() {
 void clear() {
     for (int i = 0; i <= max_state; i++)
         total[i] = 0;
-    for (int i = 0; i < MAXN; i++)
+    for (int i = 0; i < N; i++)
         f[i].clear();
     for (int i = 1; i <= 8; i++)
         used[i] = 0;

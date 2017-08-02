@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define N 105
+const N = 105;
 
 char s1[N], s2[N];
 int num1[N], num2[N];

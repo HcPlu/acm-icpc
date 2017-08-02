@@ -2,18 +2,24 @@
 #include <queue>
 
 using namespace std;
+
 const int N = 6666;
 const int M = 222222;
-const int inf = INT_MAX / 2;
+const int INF = INT_MAX / 2;
+
 struct Node {
     int to, nxt, w;
 } nod[M * 2];
+
 struct Node2 {
+
     int to, nxt, c;
 } nod2[M * 2];
+
 struct Edge {
     int u, v, w;
 } e[M];
+
 int S, T;
 int q[N * 50], head[N], head2[N], w[N], d[N], inq[N], finish[N];
 int ans1, ans2;
@@ -36,7 +42,7 @@ void add2(int u, int v, int c) {
 void spfa() {
     priority_queue<pair<int, int> > heap;
     for (int i = 1; i <= n; ++i) {
-        d[i] = inf;
+        d[i] = INF;
         finish[i] = false;
     }
     d[1] = 0;
@@ -154,7 +160,7 @@ void dinic() {
     while (bfs()) {
         for (int i = S; i <= T; i++)
             w[i] = head2[i];
-        ans1 += dfs(S, inf);
+        ans1 += dfs(S, INF);
     }
 }
 

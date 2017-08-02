@@ -3,7 +3,7 @@
 using namespace std;
 const int N = 111111;
 
-int num[N], ans[N], n, maxn;
+int num[N], ans[N], n, N;
 long long sum[N], backup[N];
 int a[N], x[N];
 
@@ -47,20 +47,20 @@ void solve() {
     memset(sum, 0, sizeof(sum));
 
     long long tot = 0;
-    maxn = 0;
+    N = 0;
     for (int i = 1; i <= n; i++) {
         scanf("%d%d", &a[i], &x[i]);
         sum[a[i]] += x[i];
-        if (a[i] > maxn)
-            maxn = a[i];
+        if (a[i] > N)
+            N = a[i];
         tot += x[i];
     }
 
-    for (int i = 0; i <= maxn; i++) {
+    for (int i = 0; i <= N; i++) {
         backup[i] = sum[i];
     }
 
-    for (int i = maxn; i >= 0; i--) {
+    for (int i = N; i >= 0; i--) {
         if (sum[i] % 2 == 0) {
             continue;
         }

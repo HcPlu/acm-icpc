@@ -25,7 +25,7 @@ void work() {
         for (int j = 1; (j + (1 << i) - 1) <= n; j++) {
             Or[j][i] = Or[j][i - 1] | Or[j + (1 << i - 1)][i - 1];
         }
-    LL ans = 0;
+    long long ans = 0;
     for (int i = 1; i < n; i++) {
         int now = i;
         int base = 0;

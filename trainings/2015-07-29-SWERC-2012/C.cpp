@@ -3,17 +3,16 @@
 
 using namespace std;
 
-typedef long long LL;
+const int MOD = 1000000007;
 
-#define N 20
+const int N = 20;
 
 int p[N], a[N];
 int pi_1[N], pin[N], S_1[N], Sn[N], n, k[N];
 int digit[N], CC;
-#define MOD 1000000007
 
 int times(int x, int y) {
-    return ((LL)x * (LL)y) % MOD;
+    return ((long long)x * (long long)y) % MOD;
 }
 
 int pow(int x, int y) {

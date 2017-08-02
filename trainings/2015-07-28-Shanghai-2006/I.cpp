@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define MOD 10000
+const int MOD = 10000;
 
 int main() {
     int p, k;

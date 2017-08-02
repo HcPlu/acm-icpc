@@ -5,19 +5,18 @@ using namespace std;
 
 #define N 105
 #define MP(x, y) make_pair(x,y)
-#define LL long long
 
 pair<int, pair<int, int> > tmp[N * N];
 
 int dx[5] = {0, 1, -1, 0, 0};
 int a[N][N], dy[5] = {0, 0, 0, 1, -1};
-LL f[N][N];
+long long f[N][N];
 
 int main() {
     int n, m, T, test = 0;
     scanf("%d", &T);
     while (T--) {
-        LL ans = 0;
+        long long ans = 0;
         test++;
         scanf("%d%d", &n, &m);
         int cnt = 0;

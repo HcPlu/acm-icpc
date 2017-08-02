@@ -2,11 +2,11 @@
 
 using namespace std;
 int n;
-const int MAXN = 1011;
-char s2[MAXN][MAXN];
-char s[MAXN][MAXN];
-char code[MAXN][MAXN];
-char ans[MAXN][MAXN];
+const int N = 1011;
+char s2[N][N];
+char s[N][N];
+char code[N][N];
+char ans[N][N];
 
 void move() {
     for (int i = 1; i <= n; i++)

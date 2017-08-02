@@ -2,16 +2,16 @@
 #include <queue>
 
 #define PII pair<int, int>
-const int inf = 1 << 29;
-const int MAXN = 111111;
+const int INF = 1 << 29;
+const int N = 111111;
 using namespace std;
 
-PII pre[MAXN];
-int dist[MAXN];
-int a[MAXN], outp[MAXN], fnd, ans = inf, h[MAXN];
+PII pre[N];
+int dist[N];
+int a[N], outp[N], fnd, ans = INF, h[N];
 
 void solve1(int x) {
-    PII ansnow = make_pair(inf, inf);
+    PII ansnow = make_pair(INF, INF);
     for (int i = 1; i <= 9; i++) {
         int ret = i % x;
         for (int j = 0; j < x; j++)
@@ -33,7 +33,7 @@ void solve1(int x) {
             h[ret] = 1;
         }
     }
-    if (ansnow.first < inf) {
+    if (ansnow.first < INF) {
         for (int i = 1; i <= ansnow.first; i++)
             putchar(ansnow.second + '0');
         puts("");
@@ -112,7 +112,7 @@ void bfs(int p1, int p2, int mo) {
 }
 
 void solve2(int x) {
-    ans = inf;
+    ans = INF;
     for (int i = 0; i <= 9; i++)
         for (int j = i + 1; j <= 9; j++)
             bfs(i, j, x);

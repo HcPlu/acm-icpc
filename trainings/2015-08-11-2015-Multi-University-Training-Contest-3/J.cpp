@@ -3,13 +3,13 @@
 #include <iostream>
 
 using namespace std;
-const int MAXN = 555555;
+const int N = 555555;
 struct Edge {
     int to, nxt;
-} nod[MAXN];
+} nod[N];
 
 int n, tot;
-int a[MAXN], f[MAXN], head[MAXN];
+int a[N], f[N], head[N];
 
 int getans(int x) {
     if (f[x] > -1)

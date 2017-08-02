@@ -1,11 +1,11 @@
 #include <iostream>
 
-const int MAXN = 20000;
+const int N = 20000;
 const int dx[4] = {1, 0, -1, 0};
 const int dy[4] = {0, 1, 0, -1};
 struct Pos {
     int x, y, d, fnd;
-} q[MAXN];
+} q[N];
 int f[30][30][4][2], n;
 int g[30][30];
 using namespace std;

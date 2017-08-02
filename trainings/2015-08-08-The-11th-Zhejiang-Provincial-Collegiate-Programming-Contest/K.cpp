@@ -4,8 +4,8 @@
 
 using namespace std;
 const int function_len = 8;
-const int MAXN = 1000;
-char s[MAXN];
+const int N = 1000;
+char s[N];
 
 void get_function(int pos) {
     int pointer;

@@ -1,6 +1,5 @@
 #include <cstdio>
 #include <vector>
-#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -10,7 +9,7 @@ using namespace std;
 typedef long long LL;
 
 int w[N][N], c[N][N];
-LL Max[N], f[N][N];
+long long Max[N], f[N][N];
 
 vector<pair<int, pair<int, int> > > seq;
 
@@ -55,7 +54,7 @@ int main(void) {
             Max[4] = max(Max[4], 1LL * (-x) - y + f[x][y]);
         }
     }
-    LL CC = 0;
+    long long CC = 0;
     for (int i = 1; i <= n; i++)
         for (int j = 1; j <= m; j++)
             CC = max(CC, f[i][j]);

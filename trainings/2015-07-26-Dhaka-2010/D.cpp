@@ -1,9 +1,11 @@
 #include <iostream>
 
 using namespace std;
+
+const int N = 1000000;
 const int dx[] = {0, -1, 1, 0, 0};
 const int dy[] = {0, 0, 0, -1, 1};
-const int MAXN = 1000000;
+
 struct Point {
     int x, y, id;
 } po[10], recover[10];
@@ -12,7 +14,7 @@ struct Point {
 int where[200];
 int mypow[10];
 int obstacle[11][11];
-int marked[3000], q[MAXN];
+int marked[3000], q[N];
 char row[11][11];
 int occur[64 * 64 * 64 * 64 + 10];
 

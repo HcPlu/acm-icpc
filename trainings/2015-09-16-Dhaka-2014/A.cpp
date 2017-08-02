@@ -1,8 +1,8 @@
 #include <iostream>
 
 using namespace std;
-const int MAXN = 1111111;
-char s[MAXN];
+const int N = 1111111;
+char s[N];
 int n;
 int fa[30];
 

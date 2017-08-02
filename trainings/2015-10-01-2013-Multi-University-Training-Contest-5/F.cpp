@@ -3,7 +3,7 @@
 using namespace std;
 const int N = 111111;
 int a[N], n, m;
-int sum[N], maxn[N], minn[N];
+int sum[N], N[N], minn[N];
 
 void solve() {
     for (int i = 1; i <= n; i++) {
@@ -15,15 +15,15 @@ void solve() {
     }
     for (int i = 0; i < m; i++) {
         minn[i] = n + 1;
-        maxn[i] = 0;
+        N[i] = 0;
     }
     for (int i = 0; i <= n; i++) {
         minn[sum[i]] = min(minn[sum[i]], i);
-        maxn[sum[i]] = max(maxn[sum[i]], i);
+        N[sum[i]] = max(N[sum[i]], i);
     }
     int ans = 0;
     for (int i = 0; i < m; i++) {
-        ans = max(ans, maxn[i] - minn[i]);
+        ans = max(ans, N[i] - minn[i]);
     }
     printf("%d\n", ans);
 }
