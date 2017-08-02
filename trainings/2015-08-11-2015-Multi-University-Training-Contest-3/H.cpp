@@ -1,7 +1,7 @@
 #pragma comment(linker, "/STACK:102400000,102400000")
 
-#include<cstdio>
-#include<iostream>
+#include <cstdio>
+#include <iostream>
 
 using namespace std;
 

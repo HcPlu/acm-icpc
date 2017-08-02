@@ -1,10 +1,10 @@
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<cmath>
-#include<iostream>
-#include<set>
-#include<vector>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <iostream>
+#include <set>
+#include <vector>
 
 using namespace std;
 

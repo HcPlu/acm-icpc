@@ -21,9 +21,13 @@ int main() {
         test++;
         scanf("%d%d", &n, &m);
         int cnt = 0;
-        for (int i = 1; i <= n; i++)
-            for (int j = 1; j <= m; j++)
-                scanf("%d", &a[i][j]), tmp[++cnt] = MP(a[i][j], MP(i, j)), f[i][j] = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                scanf("%d", &a[i][j]);
+                tmp[++cnt] = MP(a[i][j], MP(i, j));
+                f[i][j] = 0;
+            }
+        }
         sort(tmp + 1, tmp + 1 + cnt);
         reverse(tmp + 1, tmp + 1 + cnt);
         for (int i = 1; i <= cnt; i++) {

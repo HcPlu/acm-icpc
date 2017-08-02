@@ -1,7 +1,7 @@
-#include<cstdio>
-#include<cmath>
-#include<iostream>
-#include<set>
+#include <cstdio>
+#include <cmath>
+#include <iostream>
+#include <set>
 
 using namespace std;
 

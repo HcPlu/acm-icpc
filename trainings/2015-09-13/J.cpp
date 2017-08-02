@@ -1,6 +1,6 @@
-#include<cstring>
-#include<cstdio>
-#include<iostream>
+#include <cstring>
+#include <cstdio>
+#include <iostream>
 
 using namespace std;
 const int N(111111);

@@ -1,6 +1,6 @@
-#include<cstdio>
-#include<cstdlib>
-#include<iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 
 
 using namespace std;

@@ -1,8 +1,8 @@
-#include<cstdio>
-#include<cmath>
-#include<cstring>
-#include<iostream>
-#include<map>
+#include <cstdio>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+#include <map>
 
 using namespace std;
 

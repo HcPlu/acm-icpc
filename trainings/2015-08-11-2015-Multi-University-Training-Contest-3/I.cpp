@@ -1,11 +1,11 @@
 #pragma comment(linker, "/STACK:102400000,102400000")
 
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<cmath>
-#include<iostream>
-#include<vector>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 

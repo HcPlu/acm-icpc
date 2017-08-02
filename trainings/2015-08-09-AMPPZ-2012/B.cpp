@@ -1,7 +1,7 @@
 #include <cstdio>
-#include<vector>
-#include<cstdlib>
-#include<iostream>
+#include <vector>
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 

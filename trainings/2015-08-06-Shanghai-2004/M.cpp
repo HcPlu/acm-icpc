@@ -1,8 +1,8 @@
-#include<cstdio>
-#include<cmath>
-#include<cstring>
-#include<algorithm>
-#include<iostream>
+#include <cstdio>
+#include <cmath>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
 
 using namespace std;
 

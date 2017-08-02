@@ -1,7 +1,7 @@
-#include<cstring>
-#include<cassert>
-#include<cstdio>
-#include<algorithm>
+#include <cstring>
+#include <cassert>
+#include <cstdio>
+#include <algorithm>
 
 using namespace std;
 

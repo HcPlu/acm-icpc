@@ -1,8 +1,8 @@
-#include<cstring>
-#include<cstdio>
-#include<iostream>
-#include<vector>
-#include<cassert>
+#include <cstring>
+#include <cstdio>
+#include <iostream>
+#include <vector>
+#include <cassert>
 
 using namespace std;
 const int N(55555), LOG(16);

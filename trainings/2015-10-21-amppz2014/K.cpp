@@ -1,8 +1,8 @@
-#include<cstdio>
-#include<cstdlib>
-#include<cmath>
-#include<iostream>
-#include<queue>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <iostream>
+#include <queue>
 
 using namespace std;
 

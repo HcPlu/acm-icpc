@@ -1,10 +1,10 @@
-#include<algorithm>
-#include<cstdlib>
-#include<cstdio>
-#include<vector>
-#include<iostream>
-#include<queue>
-#include<map>
+#include <algorithm>
+#include <cstdlib>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <queue>
+#include <map>
 
 using namespace std;
 

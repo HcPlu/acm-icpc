@@ -1,8 +1,8 @@
-#include<cstdio>
-#include<cmath>
-#include<cstring>
-#include<iostream>
-#include<vector>
+#include <cstdio>
+#include <cmath>
+#include <cstring>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
